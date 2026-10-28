@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ridgeline Lawn &amp; Snow</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Weekly mowing, fertilization, aeration, cleanups and snow removal in Omaha, Elkhorn, Papillion, La Vista, Bellevue and Ralston. Same crew every visit, no contracts.">
+<meta name="theme-color" content="#2d4f2f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@500;600;700&family=IBM+Plex+Mono:wght@500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "additionalType": "https://en.wikipedia.org/wiki/Lawn_care",
+  "name": "Ridgeline Lawn & Snow",
+  "description": "Weekly mowing, fertilization and weed control, aeration and overseeding, cleanups, mulch and snow removal in the Omaha metro.",
+  "telephone": "+1-402-555-0148",
+  "email": "hello@ridgelinelawn.example",
+  "foundingDate": "2016",
+  "priceRange": "$$",
+  "address": { "@type": "PostalAddress", "addressLocality": "Omaha", "addressRegion": "NE", "postalCode": "68137", "addressCountry": "US" },
+  "geo": { "@type": "GeoCoordinates", "latitude": 41.2084, "longitude": -96.1203 },
+  "areaServed": ["Omaha", "Elkhorn", "Millard", "Papillion", "La Vista", "Bellevue", "Ralston", "Bennington"],
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "12:00" }
+  ]
+}
+</script>
+<style>
+/* Layout: an editorial field-guide page on paper. Each section takes its own shape: split hero with a
+   bleeding photo and a stamp, a pinned-heading price list, a dark step band, a full-bleed before/after,
+   a 12-month chart, an offset photo story, a staggered review wall, a map with crew days, a two-column
+   FAQ and a soil-brown quote band. Mobile collapses every one to a single column. */
+:root {
+  --paper: #f1ede2;
+  --paper-2: #e6e0cf;
+  --ink: #1e221d;
+  --ink-2: #4b4f45;
+  --rule: #cdc5b0;
+  --grass: #2d4f2f;
+  --grass-2: #36603a;
+  --grass-ink: #e9efe0;
+  --grass-mute: #b9c9ae;
+  --soil: #3a2d22;
+  --soil-mute: #d5c6b3;
+  --straw: #d6a92e;
+  --straw-ink: #1e1a0c;
+  --bad: #9e2a1c;
+  --display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --ui: "Barlow", "Segoe UI", system-ui, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --step--1: .875rem; --step-0: 1.0625rem; --step-1: 1.3125rem; --step-2: 1.75rem;
+  --step-3: clamp(2.25rem, 6vw, 3.25rem); --step-4: clamp(2.75rem, 9vw, 5.25rem);
+  --grain: url("data:image/png;base64,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");
+  color-scheme: light;
+}
+* { box-sizing: border-box }
+html { scroll-behavior: smooth; scroll-padding-top: 16px }
+body {
+  margin: 0; background: var(--paper) var(--grain); color: var(--ink);
+  font: 400 var(--step-0)/1.6 var(--body);
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+}
+@media (min-width: 900px) { body { padding-bottom: 0 } }
+img { max-width: 100%; height: auto; display: block }
+[hidden] { display: none !important }
+::selection { background: var(--straw); color: var(--straw-ink) }
+a { color: var(--grass); text-decoration-thickness: 1.5px; text-underline-offset: .22em }
+a:hover { color: var(--ink) }
+:focus-visible { outline: 3px solid var(--straw); outline-offset: 3px; border-radius: 3px }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: .98; letter-spacing: -.012em; text-wrap: balance; margin: 0 }
+h2 { font-size: var(--step-3) }
+h3 { font-size: var(--step-2); font-weight: 600 }
+p { margin: 0; text-wrap: pretty }
+.wrap { width: 100%; max-width: 76rem; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)) }
+@media (min-width: 768px) { .wrap { padding-left: max(40px, env(safe-area-inset-left, 0px)); padding-right: max(40px, env(safe-area-inset-right, 0px)) } }
+.spec { font: 500 .75rem/1.3 var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--ink-2) }
+.lede { font-size: var(--step-1); line-height: 1.5; color: var(--ink-2); max-width: 36ch }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5em; min-height: 52px; padding: 0 1.4em; border-radius: 4px; border: 0; cursor: pointer; font: 700 1.0625rem/1 var(--ui); letter-spacing: .01em; text-decoration: none; transition: background-color .2s, color .2s, transform .2s cubic-bezier(.16,1,.3,1) }
+.btn:active { transform: translateY(1px) }
+.btn-primary { background: var(--grass); color: var(--grass-ink) }
+.btn-primary:hover { background: var(--ink); color: var(--paper) }
+.btn-line { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 2px var(--ink) }
+.btn-line:hover { background: var(--ink); color: var(--paper) }
+.btn-straw { background: var(--straw); color: var(--straw-ink) }
+.btn-straw:hover { background: var(--paper); color: var(--ink) }
+.i { width: 1.1em; height: 1.1em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round }
+
+/* demo strip */
+.demo { background: var(--ink); color: var(--paper); font: 600 .8125rem/1.4 var(--ui); text-align: center; padding-block: 7px }
+
+/* header */
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px }
+.logo { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font: 800 1.5rem/1 var(--display); text-transform: uppercase; letter-spacing: .03em }
+.logo svg { width: 36px; height: 36px }
+.logo small { display: block; font: 500 .6875rem/1 var(--mono); letter-spacing: .08em; color: var(--ink-2); margin-top: 3px }
+.head-nav { display: none; gap: 28px; font: 600 .9375rem/1 var(--ui) }
+.head-nav a { color: var(--ink); text-decoration: none }
+.head-nav a:hover { color: var(--grass); text-decoration: underline }
+.head-phone { font: 700 1.0625rem/1 var(--ui); color: var(--ink); text-decoration: none; font-variant-numeric: tabular-nums; display: none; align-items: center; gap: 8px }
+@media (min-width: 900px) { .head-nav, .head-phone { display: flex } }
+
+/* hero */
+.hero { position: relative; padding-block: 8px 0 }
+.hero-grid { display: grid; gap: 32px }
+.hero h1 { font-size: var(--step-4); font-weight: 800; letter-spacing: -.02em; line-height: .92; max-width: 13ch }
+.hero h1 span { color: var(--grass) }
+.hero .lede { margin-top: 20px }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px }
+.hero-photo { position: relative; margin-inline: calc(-1 * max(20px, env(safe-area-inset-left, 0px))) calc(-1 * max(20px, env(safe-area-inset-right, 0px))) }
+.hero-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 70% }
+.hero-photo figcaption { position: absolute; left: max(20px, env(safe-area-inset-left, 0px)); bottom: 14px; background: var(--paper); padding: 6px 10px }
+.stamp { position: absolute; right: max(18px, env(safe-area-inset-right, 0px)); top: -46px; width: 104px; height: 104px; color: var(--soil); transform: rotate(-8deg) }
+.stamp svg { width: 100%; height: 100% }
+@media (min-width: 900px) {
+  .hero-grid { grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); align-items: end; gap: 56px }
+  .hero-copy { padding-block: 40px 72px }
+  .hero-photo { margin: 0 calc(-1 * max(40px, (100vw - 76rem) / 2 + 40px)) 0 0 }
+  .hero-photo img { aspect-ratio: 5 / 6; max-height: 640px }
+  .hero-photo figcaption { left: 20px; bottom: 20px }
+  .stamp { left: -52px; right: auto; top: 48px; width: 128px; height: 128px }
+}
+
+/* trust strip on mowing stripes */
+.stripes { background-color: var(--grass); background-image: repeating-linear-gradient(90deg, var(--grass) 0 72px, var(--grass-2) 72px 144px); color: var(--grass-ink) }
+.trust { list-style: none; margin: 0; padding-block: 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px }
+.trust li { display: grid; gap: 2px }
+.trust b { font: 700 2rem/1 var(--display); letter-spacing: -.01em }
+.trust span { font: 500 .8125rem/1.35 var(--ui); color: var(--grass-mute) }
+@media (min-width: 768px) { .trust { grid-template-columns: repeat(4, auto); justify-content: space-between } }
+
+section { padding-block: 80px }
+@media (min-width: 900px) { section { padding-block: 120px } }
+
+/* services: pinned heading + price rows */
+.svc-grid { display: grid; gap: 40px }
+.svc-intro p { margin-top: 18px; color: var(--ink-2); max-width: 38ch }
+.svc-intro figure { margin: 32px 0 0; max-width: 340px }
+.svc-intro img { aspect-ratio: 1 / 1; object-fit: cover; width: 100% }
+.svc-intro figcaption { margin-top: 8px }
+.svc-list { list-style: none; margin: 0; padding: 0; border-top: 3px solid var(--ink) }
+.svc { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 20px; padding-block: 24px; border-bottom: 1px solid var(--rule) }
+.svc h3 { grid-column: 1 }
+.svc .price { grid-column: 2; grid-row: 1 / span 2; text-align: right; font: 700 1.5rem/1 var(--display); white-space: nowrap }
+.svc .price small { display: block; font: 500 .75rem/1.3 var(--mono); color: var(--ink-2); letter-spacing: .03em; margin-top: 4px; text-transform: uppercase }
+.svc .spec { grid-column: 1 }
+.svc p { grid-column: 1 / -1; color: var(--ink-2); max-width: 60ch; margin-top: 6px }
+.svc-note { margin-top: 18px; font-size: var(--step--1); color: var(--ink-2) }
+@media (min-width: 900px) {
+  .svc-grid { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 72px }
+  .svc-intro { position: sticky; top: 32px; align-self: start }
+}
+
+/* how it works: dark band, steps on a line */
+.how { background: var(--grass) var(--grain); color: var(--grass-ink) }
+.how h2 { max-width: 18ch }
+.how .lede { color: var(--grass-mute); margin-top: 16px }
+.steps { list-style: none; margin: 48px 0 0; padding: 0; display: grid; gap: 32px; counter-reset: step }
+.steps li { counter-increment: step; position: relative; padding-left: 64px }
+.steps li::before { content: counter(step); position: absolute; left: 0; top: -4px; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--straw); color: var(--straw-ink); font: 800 1.375rem/1 var(--display) }
+.steps li::after { content: ""; position: absolute; left: 21px; top: 48px; bottom: -28px; width: 2px; background: var(--grass-mute); opacity: .35 }
+.steps li:last-child::after { display: none }
+.steps h3 { font-size: var(--step-1); font-weight: 700; letter-spacing: 0; line-height: 1.2 }
+.steps p { color: var(--grass-mute); margin-top: 6px; max-width: 34ch }
+.steps .spec { color: var(--straw); display: block; margin-bottom: 6px }
+@media (min-width: 900px) {
+  .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px }
+  .steps li { padding: 64px 0 0 }
+  .steps li::after { left: 52px; right: -28px; top: 21px; bottom: auto; width: auto; height: 2px }
+}
+
+/* before / after */
+.ba { padding-bottom: 0 }
+.ba-head { display: grid; gap: 16px }
+@media (min-width: 900px) { .ba-head { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: end; gap: 72px } }
+.ba-head p { color: var(--ink-2); max-width: 46ch }
+.compare { position: relative; margin-top: 40px; margin-bottom: -96px; z-index: 2; overflow: hidden; aspect-ratio: 16 / 10; max-height: 640px; width: 100%; background: var(--paper-2); touch-action: pan-y; user-select: none }
+@media (min-width: 900px) { .compare { aspect-ratio: 21 / 9 } }
+.compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60% }
+.compare .before { filter: saturate(.28) sepia(.6) hue-rotate(-14deg) brightness(.94) contrast(.92); clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0) }
+.compare .tag { position: absolute; top: 14px; font: 600 .8125rem/1 var(--ui); background: var(--paper); color: var(--ink); padding: 7px 10px; z-index: 3 }
+.compare .tag.l { left: 14px } .compare .tag.r { right: 14px }
+.compare .handle { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 3px; margin-left: -1.5px; background: var(--paper); z-index: 3; pointer-events: none }
+.compare .handle::after { content: ""; position: absolute; top: 50%; left: 50%; width: 48px; height: 48px; margin: -24px 0 0 -24px; border-radius: 50%; background: var(--paper); box-shadow: 0 2px 10px rgba(30,34,29,.35); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e221d' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l-6 6 6 6M15 6l6 6-6 6'/%3E%3C/svg%3E"); background-size: 26px; background-position: center; background-repeat: no-repeat }
+.compare input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; z-index: 4 }
+.compare input:focus-visible ~ .handle::after { outline: 3px solid var(--straw); outline-offset: 3px }
+.ba-note { margin: 0 0 56px; font-size: var(--step--1); color: var(--ink-2) }
+
+/* calendar */
+.cal { background: var(--paper-2); padding-top: 160px }
+.cal-head { display: grid; gap: 16px; max-width: 60ch }
+.cal-head p { color: var(--ink-2) }
+.chart-scroll { margin-top: 40px; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px }
+.chart { position: relative; min-width: 680px }
+.chart-months, .chart-row { display: grid; grid-template-columns: 11rem repeat(12, minmax(0, 1fr)) }
+.chart-months span { font: 500 .75rem/1 var(--mono); letter-spacing: .04em; color: var(--ink-2); padding-bottom: 10px; border-left: 1px solid var(--rule); padding-left: 6px }
+.chart-months span:first-child { border: 0 }
+.chart-row { border-top: 1px solid var(--rule); min-height: 44px; align-items: center }
+.chart-row:last-child { border-bottom: 1px solid var(--rule) }
+.chart-row > b { font: 600 .9375rem/1.2 var(--ui); padding-right: 12px; position: sticky; left: 0; z-index: 3; background: var(--paper-2); align-self: stretch; display: flex; align-items: center }
+.chart-months span:first-child { position: sticky; left: 0; z-index: 3; background: var(--paper-2) }
+.track { grid-column: 2 / -1; position: relative; height: 44px; background-image: linear-gradient(90deg, var(--rule) 1px, transparent 1px); background-size: calc(100% / 12) 100% }
+.bar { position: absolute; top: 13px; height: 18px; border-radius: 2px; background: var(--grass) }
+.bar.feed { background: var(--grass-2) }
+.bar.soil { background: var(--soil) }
+.bar.straw { background: var(--straw) }
+.bar.snow { background: var(--ink-2) }
+.today { position: absolute; top: -6px; bottom: 0; width: 2px; background: var(--bad); left: calc(11rem + (100% - 11rem) * var(--t, .82)); z-index: 2 }
+.today span { position: absolute; top: -18px; left: 6px; font: 500 .6875rem/1 var(--mono); color: var(--bad); white-space: nowrap; letter-spacing: .04em; text-transform: uppercase }
+.chart-scroll-hint { margin-top: 10px; font-size: var(--step--1); color: var(--ink-2) }
+@media (min-width: 900px) { .chart-scroll-hint { display: none } }
+.seasons { margin: 56px 0 0; display: grid; gap: 32px }
+.seasons div { display: grid; gap: 8px; align-content: start }
+.seasons dt { font: 700 var(--step-2)/1 var(--display); display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap }
+.seasons dt .spec { font-size: .75rem }
+.seasons dd { margin: 0; color: var(--ink-2); max-width: 44ch }
+@media (min-width: 768px) { .seasons { grid-template-columns: 1fr 1fr; gap: 40px 64px } }
+@media (min-width: 1100px) { .seasons { grid-template-columns: 1.15fr 1fr 1.15fr 1fr } }
+
+/* about */
+.about-grid { display: grid; gap: 48px }
+.about-photo { position: relative; margin: 0 }
+.about-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover }
+.about-photo figcaption { margin-top: 10px }
+.about-stat { position: absolute; right: -8px; bottom: 56px; background: var(--straw); color: var(--straw-ink); padding: 16px 18px; max-width: 13rem; box-shadow: 0 10px 30px -12px rgba(30,34,29,.45) }
+.about-stat b { display: block; font: 800 2.75rem/.9 var(--display) }
+.about-stat span { font: 600 .875rem/1.3 var(--ui) }
+.about-copy h2 { max-width: 16ch }
+.about-copy p { margin-top: 20px; max-width: 58ch }
+.about-copy p:first-of-type { font-size: var(--step-1); line-height: 1.5 }
+.pull { margin: 32px 0 0; padding: 0; font: italic 400 var(--step-2)/1.25 var(--body); color: var(--grass); max-width: 24ch }
+.crew { list-style: none; margin: 36px 0 0; padding: 20px 0 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 16px 24px }
+.crew b { display: block; font: 700 1.125rem/1.2 var(--ui) }
+.crew span { font-size: var(--step--1); color: var(--ink-2) }
+@media (min-width: 900px) {
+  .about-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 88px; align-items: start }
+  .about-photo { margin-top: 40px }
+  .about-stat { right: -40px }
+}
+
+/* reviews */
+.reviews { background: var(--paper-2) }
+.rev-head { display: grid; gap: 14px }
+.rev-head p { color: var(--ink-2); max-width: 52ch }
+.sample { display: inline-block; font: 500 .6875rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--ink-2); color: var(--ink-2); padding: 5px 8px; vertical-align: middle; margin-right: 8px }
+.rev-wall { margin-top: 48px; display: grid; gap: 28px }
+.rev { margin: 0; display: grid; gap: 14px; align-content: start; padding-top: 18px; border-top: 2px solid var(--ink) }
+.rev blockquote { margin: 0; font-size: var(--step-0) }
+.rev.big blockquote { font-size: var(--step-2); line-height: 1.25; font-weight: 400 }
+.rev figcaption { font: 600 .875rem/1.3 var(--ui) }
+.rev figcaption span { font-weight: 500; color: var(--ink-2) }
+@media (min-width: 768px) {
+  .rev-wall { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 40px 32px }
+  .rev:nth-child(1) { grid-column: 1 / span 4 }
+  .rev:nth-child(2) { grid-column: 5 / span 2 }
+  .rev:nth-child(3) { grid-column: 1 / span 2 }
+  .rev:nth-child(4) { grid-column: 3 / span 2; margin-top: 48px }
+  .rev:nth-child(5) { grid-column: 5 / span 2 }
+}
+
+/* service area */
+.area-grid { display: grid; gap: 40px }
+.area-grid > div { min-width: 0 }
+.map { width: 100%; height: auto; background: var(--paper-2) }
+.map .road { fill: none; stroke: var(--ink-2); stroke-width: 2.5 }
+.map .road.minor { stroke-width: 1.5; stroke-dasharray: 5 4 }
+.map .river { fill: none; stroke: #6f8ea0; stroke-width: 7; stroke-linecap: round }
+.map text { font: 600 12px var(--ui); fill: var(--ink) }
+.map .lbl { font: 500 9.5px var(--mono); fill: var(--ink-2); letter-spacing: .05em }
+.map .rlbl { font: italic 400 12px var(--body); fill: #47697c }
+.days { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 0 }
+.days li { display: grid; grid-template-columns: 3.2rem 14px 1fr; gap: 12px; align-items: baseline; padding-block: 12px; border-bottom: 1px solid var(--rule) }
+.days li:first-child { border-top: 1px solid var(--rule) }
+.days b { font: 700 1.25rem/1 var(--display); text-transform: uppercase }
+.days i { width: 12px; height: 12px; border-radius: 50%; display: inline-block; transform: translateY(1px) }
+.days span { color: var(--ink-2) }
+.area-grid p.small { margin-top: 18px; font-size: var(--step--1); color: var(--ink-2) }
+@media (min-width: 900px) { .area-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 72px; align-items: center } }
+
+/* faq */
+.faq { border-top: 1px solid var(--rule) }
+.faq-grid { display: grid; gap: 32px }
+.faq-grid > div:first-child p { margin-top: 16px; color: var(--ink-2); max-width: 32ch }
+.qa { border-bottom: 1px solid var(--rule) }
+.qa:first-child { border-top: 3px solid var(--ink) }
+.qa summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 20px; font: 700 1.1875rem/1.3 var(--ui) }
+.qa summary::-webkit-details-marker { display: none }
+.qa summary:hover { color: var(--grass) }
+.qa summary .i { transition: transform .3s cubic-bezier(.16,1,.3,1) }
+.qa[open] summary .i { transform: rotate(45deg) }
+.qa p { padding-bottom: 22px; color: var(--ink-2); max-width: 62ch }
+@media (min-width: 900px) { .faq-grid { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 72px } .faq-grid > div:first-child { position: sticky; top: 32px; align-self: start } }
+
+/* quote */
+.quote { background: var(--soil) var(--grain); color: var(--paper) }
+.quote-grid { display: grid; gap: 40px }
+.quote h2 { color: var(--paper) }
+.quote .lede { color: var(--soil-mute); margin-top: 16px }
+.quote-direct { margin-top: 32px; display: grid; gap: 4px }
+.quote-direct a { color: var(--paper); font: 800 2.25rem/1 var(--display); text-decoration: none; font-variant-numeric: tabular-nums }
+.quote-direct span { color: var(--soil-mute); font-size: var(--step--1) }
+form { background: var(--paper) var(--grain); color: var(--ink); padding: 28px 22px; display: grid; gap: 20px; border-radius: 4px }
+@media (min-width: 768px) { form { padding: 40px } }
+.f { display: grid; gap: 7px; min-width: 0 }
+.f-row { display: grid; gap: 20px }
+@media (min-width: 640px) { .f-row { grid-template-columns: 1fr 1fr } }
+label, legend { font: 700 .9375rem/1.2 var(--ui) }
+.opt { font-weight: 500; color: var(--ink-2) }
+input[type=text], input[type=tel], textarea { width: 100%; font: 400 1.0625rem/1.4 var(--ui); color: var(--ink); background: #fbf9f3; border: 1.5px solid var(--rule); border-radius: 3px; min-height: 52px; padding: 12px 14px; caret-color: var(--grass) }
+textarea { min-height: 110px; resize: vertical }
+input::placeholder, textarea::placeholder { color: #75786d }
+input:focus, textarea:focus { outline: none; border-color: var(--grass); box-shadow: 0 0 0 3px rgba(45,79,47,.22) }
+fieldset { border: 0; margin: 0; padding: 0; min-width: 0 }
+legend { padding: 0; margin-bottom: 10px }
+.choices { display: flex; flex-wrap: wrap; gap: 8px }
+.choice { position: relative }
+.choice input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer }
+.choice span { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 1.5px solid var(--rule); border-radius: 3px; font: 600 .9375rem/1.2 var(--ui); background: #fbf9f3; transition: background-color .15s, border-color .15s }
+.choice span::before { content: ""; width: 14px; height: 14px; border: 1.5px solid var(--ink-2); border-radius: 2px; flex: none; background: center / 12px no-repeat }
+.choice input[type=radio] + span::before { border-radius: 50% }
+.choice input:checked + span { background: var(--grass); color: var(--grass-ink); border-color: var(--grass) }
+.choice input:checked + span::before { border-color: var(--grass-ink); background-color: var(--grass-ink); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232d4f2f' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") }
+.choice input:focus-visible + span { outline: 3px solid var(--straw); outline-offset: 2px }
+.choice span:hover { border-color: var(--ink-2) }
+.err { color: var(--bad); font: 600 .875rem/1.3 var(--ui) }
+#e-svc { display: block; margin-top: 8px }
+.f.bad input, .bad .choice span { border-color: var(--bad) }
+form .btn { width: 100% }
+.form-foot { font-size: var(--step--1); color: var(--ink-2); text-align: center }
+.done { background: var(--paper); color: var(--ink); padding: 36px 28px; border-radius: 4px; display: grid; gap: 12px; align-content: start }
+.done h3 { font-size: var(--step-3) }
+.done p { color: var(--ink-2); max-width: 46ch }
+@media (min-width: 900px) { .quote-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 72px; align-items: start } }
+
+/* footer */
+footer { background: var(--ink); color: #cfd2c8; padding-block: 64px 40px; font: 500 .9375rem/1.6 var(--ui) }
+footer a { color: var(--paper) }
+.foot-grid { display: grid; gap: 36px }
+footer h3 { font: 700 .75rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: #9fa497; margin-bottom: 14px }
+footer .logo { color: var(--paper) }
+footer .logo small { color: #9fa497 }
+footer ul { list-style: none; margin: 0; padding: 0 }
+.hours { display: grid; grid-template-columns: auto 1fr; gap: 2px 16px; margin: 0 }
+.hours dt { color: var(--paper) }
+.hours dd { margin: 0; font-variant-numeric: tabular-nums }
+.social { display: flex; gap: 12px; margin-top: 18px }
+.social a { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #4a4f45; border-radius: 50% }
+.social a:hover { background: var(--paper); color: var(--ink) }
+.legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #3a3e36; font-size: .8125rem; color: #9fa497; display: grid; gap: 6px }
+@media (min-width: 768px) { .foot-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr } }
+
+/* sticky mobile bar */
+.mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--ink); padding-top: 10px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(12px, env(safe-area-inset-right, 0px)); display: grid; grid-template-columns: 1fr 1fr; gap: 10px }
+.mbar .btn { min-height: 50px; padding: 0 10px }
+.mbar .btn-line { color: var(--paper); box-shadow: inset 0 0 0 2px #6b7064 }
+@media (min-width: 900px) { .mbar { display: none } }
+
+/* scroll reveal: only added by script, only below the fold */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1) }
+.reveal.in { opacity: 1; transform: none }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto }
+  *, *::before, *::after { transition: none !important; animation: none !important }
+  .reveal { opacity: 1; transform: none }
+}
+</style>
+</head>
+<body>
+
+<div class="demo">Sample site for a made-up Omaha business. Every name, number and review is a placeholder.</div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Ridgeline Lawn and Snow, home">
+      <svg viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" fill="#2d4f2f"/><path d="M0 26h36v10H0z" fill="#36603a"/><path d="M4 26l9-12 6 8 4-5 9 9z" fill="#d6a92e"/></svg>
+      <span>Ridgeline<small>LAWN &amp; SNOW · OMAHA</small></span>
+    </a>
+    <nav class="head-nav" aria-label="Sections">
+      <a href="#services">Services</a><a href="#calendar">Lawn year</a><a href="#area">Where we mow</a><a href="#faq">Questions</a>
+    </nav>
+    <a class="head-phone" href="tel:+14025550148"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>(402) 555-0148</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1 id="hero-h">Mowed the same day every week, by a crew that <span>knows your gate code.</span></h1>
+        <p class="lede">We mow, feed and clean up about 340 yards between Elkhorn and Bellevue. You get a text the night before and a photo when we pull away.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#quote">Get a free quote</a>
+          <a class="btn btn-line" href="tel:+14025550148"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call (402) 555-0148</a>
+        </div>
+      </div>
+      <figure class="hero-photo" style="margin-block:0">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1400&q=70&auto=format&fit=crop" width="1400" height="933" fetchpriority="high" alt="White two-story house with a wraparound porch behind a wide, freshly mowed green lawn">
+        <figcaption class="spec">Cut at 3.5 in · Weekly, Apr–Oct</figcaption>
+        <div class="stamp" aria-hidden="true">
+          <svg viewBox="0 0 120 120"><defs><path id="ring" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs>
+            <circle cx="60" cy="60" r="58" fill="#f1ede2"/><circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            <text font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="500" letter-spacing="2.6" fill="currentColor"><textPath href="#ring">RIDGELINE · OMAHA, NEBRASKA ·</textPath></text>
+            <text x="60" y="56" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="13" fill="currentColor" letter-spacing="1">EST.</text>
+            <text x="60" y="78" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="25" fill="currentColor">2016</text></svg>
+        </div>
+      </figure>
+    </div>
+    <div class="stripes">
+      <ul class="wrap trust">
+        <li><b>10 seasons</b><span>mowing Omaha since 2016</span></li>
+        <li><b>340 yards</b><span>on the weekly route</span></li>
+        <li><b>Licensed &amp; insured</b><span>NE commercial applicator #00000</span></li>
+        <li><b>No contracts</b><span>cancel by text, any week</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="services" aria-labelledby="svc-h">
+    <div class="wrap svc-grid">
+      <div class="svc-intro">
+        <h2 id="svc-h">What we do, and what it costs</h2>
+        <p>Prices start at the numbers below for a typical quarter-acre lot. Corner lots, steep yards and big beds cost a bit more. We'll tell you the exact price before we start.</p>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=700&q=70&auto=format&fit=crop" width="700" height="700" loading="lazy" alt="Green hand trowel scooping dark compost beside a pot of soil">
+          <figcaption class="spec">Shredded hardwood, 3 in deep</figcaption>
+        </figure>
+      </div>
+      <ul class="svc-list">
+        <li class="svc">
+          <h3>Weekly mowing</h3><span class="price">$42<small>per visit</small></span>
+          <span class="spec">Weekly · mid-April to October</span>
+          <p>Mow at 3.5 inches, edge the driveway and walks, string-trim the fence line and blow clippings off the hard surfaces. We sharpen blades every morning, so the grass gets cut clean instead of torn.</p>
+        </li>
+        <li class="svc">
+          <h3>Fertilizer &amp; weed control</h3><span class="price">$55<small>per round</small></span>
+          <span class="spec">5 rounds · April to November</span>
+          <p>Crabgrass pre-emergent in April, then feed and spot-spray dandelions and clover in June, early fall and a winterizer in November. We put a flag in the yard each time, so you know when to keep the dog off.</p>
+        </li>
+        <li class="svc">
+          <h3>Aeration &amp; overseeding</h3><span class="price">$165<small>per yard</small></span>
+          <span class="spec">Once · late Aug to early Oct</span>
+          <p>Core aeration with a walk-behind machine, then tall fescue and bluegrass seed. Fall is the best time in Nebraska because the soil is still warm and the nights are cool.</p>
+        </li>
+        <li class="svc">
+          <h3>Spring &amp; fall cleanup</h3><span class="price">$175<small>per cleanup</small></span>
+          <span class="spec">Late March · late Oct to Nov</span>
+          <p>Leaves and sticks out of the lawn and beds, perennials cut back, beds edged. We haul everything away. You don't have to put bags on the curb.</p>
+        </li>
+        <li class="svc">
+          <h3>Mulch</h3><span class="price">$85<small>per cubic yd, installed</small></span>
+          <span class="spec">Spring · or any time you ask</span>
+          <p>Brown or black shredded hardwood, laid 3 inches deep and kept off tree trunks. A typical front bed takes 2 to 3 yards.</p>
+        </li>
+        <li class="svc">
+          <h3>Snow removal</h3><span class="price">$45<small>per push</small></span>
+          <span class="spec">2 in. trigger · Nov to March</span>
+          <p>Driveway plowed, walk and front steps shoveled, ice melt on the steps. Season price is $425 for unlimited pushes. Weekly mowing customers go first on the route.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap"><p class="svc-note">Sample prices for this demo. Swap in your real prices.</p></div>
+  </section>
+
+  <section class="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <h2 id="how-h">From your first text to your first mow, usually inside a week</h2>
+      <p class="lede">We quote from the satellite view of your lot, and there's nothing to sign.</p>
+      <ol class="steps">
+        <li><span class="spec">Day 1</span><h3>Send your address</h3><p>Use the form, call, or text us. Tell us what you want done.</p></li>
+        <li><span class="spec">Day 1–2</span><h3>We measure from the satellite view</h3><p>Most quotes come back by text the same day. If the yard is tricky, someone stops by.</p></li>
+        <li><span class="spec">Day 2–6</span><h3>You get a mowing day</h3><p>Your day depends on your neighborhood. We'll text you the night before every visit.</p></li>
+        <li><span class="spec">Day 7</span><h3>First visit, photo after</h3><p>We send a photo of the finished yard. You pay once a month, after the work's done.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="ba" aria-labelledby="ba-h">
+    <div class="wrap">
+      <div class="ba-head">
+        <h2 id="ba-h">Six weeks of mowing high and feeding on schedule</h2>
+        <p>Drag the bar. On the left is the yard in early June, brown from being scalped at 2 inches. On the right is the same yard in mid-July, after it was mowed at 3.5 inches and fed in June.</p>
+      </div>
+      <div class="compare" id="compare" style="--pos:50%">
+        <img class="after" src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1800&q=70&auto=format&fit=crop" width="1800" height="1200" loading="lazy" alt="After: thick, even green lawn seen from ground level">
+        <img class="before" src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1800&q=70&auto=format&fit=crop" width="1800" height="1200" loading="lazy" alt="Before: the same lawn looking thin, dry and yellowed">
+        <span class="tag l">June · before</span><span class="tag r">July · after</span>
+        <input type="range" min="0" max="100" value="50" id="ba-range" aria-label="Before and after comparison. Slide left to see more of the after photo, right to see more of the before photo.">
+        <span class="handle" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="cal" id="calendar" aria-labelledby="cal-h">
+    <div class="wrap">
+      <p class="ba-note">Demo: the "before" is the same photo with a filter. Real before/after photos from your jobs go here.</p>
+      <div class="cal-head">
+        <h2 id="cal-h">The Omaha lawn year</h2>
+        <p>Omaha is USDA zone 5b. Most lawns here are Kentucky bluegrass and tall fescue, which grow hardest in spring and fall and slow down in July heat. Here's when each job happens.</p>
+      </div>
+      <div class="chart-scroll" tabindex="0" role="region" aria-label="12-month lawn care chart">
+        <div class="chart" id="chart">
+          <div class="chart-months" aria-hidden="true"><span></span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span></div>
+          <div class="chart-row"><b>Spring cleanup</b><div class="track"><i class="bar soil" style="left:21%;width:12%" title="Late March to April"></i></div></div>
+          <div class="chart-row"><b>Crabgrass pre-emergent</b><div class="track"><i class="bar feed" style="left:25.5%;width:9%" title="April to early May"></i></div></div>
+          <div class="chart-row"><b>Weekly mowing</b><div class="track"><i class="bar" style="left:29%;width:54%" title="Mid-April to October"></i></div></div>
+          <div class="chart-row"><b>Fertilizer rounds</b><div class="track"><i class="bar feed" style="left:28%;width:4%"></i><i class="bar feed" style="left:41.7%;width:4%"></i><i class="bar feed" style="left:67%;width:4%"></i><i class="bar feed" style="left:83%;width:5%"></i></div></div>
+          <div class="chart-row"><b>Grub prevention</b><div class="track"><i class="bar feed" style="left:41.7%;width:12.5%" title="June to mid-July"></i></div></div>
+          <div class="chart-row"><b>Aeration &amp; seed</b><div class="track"><i class="bar straw" style="left:64.5%;width:11%" title="Late August to early October"></i></div></div>
+          <div class="chart-row"><b>Leaf cleanup</b><div class="track"><i class="bar soil" style="left:80.5%;width:11%" title="Late October to November"></i></div></div>
+          <div class="chart-row"><b>Snow removal</b><div class="track"><i class="bar snow" style="left:0;width:25%" title="January to March"></i><i class="bar snow" style="left:87.5%;width:12.5%" title="Mid-November to December"></i></div></div>
+          <div class="today" id="today" aria-hidden="true"><span>Today</span></div>
+        </div>
+      </div>
+      <p class="chart-scroll-hint">Swipe the chart sideways to see the whole year.</p>
+      <dl class="seasons">
+        <div><dt>Spring <span class="spec">Mar–May</span></dt><dd>Cleanup once the snow is gone. Pre-emergent goes down when the soil reaches 55°F, about when the forsythia blooms in mid-April. First mow is usually the third week of April.</dd></div>
+        <div><dt>Summer <span class="spec">Jun–Aug</span></dt><dd>We raise the deck to 4 inches in July heat. Lawns need about an inch of water a week. If it browns in a dry spell, it's dormant, and it comes back.</dd></div>
+        <div><dt>Fall <span class="spec">Sep–Nov</span></dt><dd>The most important season. Aerate and seed by early October, then leaves come off before they mat. Last mow goes a little shorter, at 3 inches, so snow mold has less to grab.</dd></div>
+        <div><dt>Winter <span class="spec">Dec–Feb</span></dt><dd>Plow trucks run once 2 inches fall. We keep salt off the grass edges and stay off frozen turf, because walking on it breaks the blades.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-h">
+    <div class="wrap about-grid">
+      <figure class="about-photo">
+        <img src="https://images.unsplash.com/photo-1611843467160-25afb8df1074?w=1000&q=70&auto=format&fit=crop" width="1000" height="1250" loading="lazy" alt="Two hands working dark compost into a garden bed with small seedlings">
+        <figcaption class="spec">Demo photo. Put your crew photo here.</figcaption>
+        <div class="about-stat"><b>6:30</b><span>a.m. start, so we're off your street before the school buses.</span></div>
+      </figure>
+      <div class="about-copy">
+        <h2 id="about-h">Sam started with his grandpa's push mower in Millard</h2>
+        <p>In the summer of 2016 Sam Kowalski mowed eleven yards on his own block for $20 apiece. By August the neighbors' parents were calling.</p>
+        <p>Ten seasons later it's a crew of six with three trucks. Sam still runs the Tuesday route himself. He'll pick up your call, and he'll tell you straight when your lawn needs nothing.</p>
+        <blockquote class="pull">“If we wouldn't do it to our own yard, we won't do it to yours.”</blockquote>
+        <ul class="crew">
+          <li><b>Sam K.</b><span>Owner, Tuesday route</span></li>
+          <li><b>Dee M.</b><span>Crew lead, west routes</span></li>
+          <li><b>Luis R.</b><span>Fertilizer &amp; weed control, licensed</span></li>
+          <li><b>Tanner B.</b><span>Cleanups &amp; mulch</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" aria-labelledby="rev-h">
+    <div class="wrap">
+      <div class="rev-head">
+        <h2 id="rev-h">What neighbors tell us</h2>
+        <p><span class="sample">Sample reviews</span>Written for this demo to show the layout. Real Google reviews from your customers go here.</p>
+      </div>
+      <div class="rev-wall">
+        <figure class="rev big"><blockquote>Our old company showed up whenever. Ridgeline comes every Wednesday. I get a text Tuesday night and a photo before I'm home from work. That's all I ever wanted.</blockquote><figcaption>Karen <span>· Dundee</span></figcaption></figure>
+        <figure class="rev"><blockquote>They close the gate. Every time. With two beagles, that's the whole review.</blockquote><figcaption>Mike <span>· Papillion</span></figcaption></figure>
+        <figure class="rev"><blockquote>They missed the side strip by the fence twice in May. I texted Sam and he came back that afternoon. It hasn't happened since.</blockquote><figcaption>Priya <span>· Elkhorn</span></figcaption></figure>
+        <figure class="rev"><blockquote>Had them aerate and seed last fall after the grubs got the back yard. By May you couldn't tell where the bad spots were.</blockquote><figcaption>Joe <span>· Millard</span></figcaption></figure>
+        <figure class="rev"><blockquote>Plowed before 6 a.m. during the January storm. I didn't have to call.</blockquote><figcaption>Denise <span>· Bellevue</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="area" aria-labelledby="area-h">
+    <div class="wrap area-grid">
+      <div>
+        <svg class="map" viewBox="0 0 400 380" role="img" aria-labelledby="map-t">
+          <title id="map-t">Schematic map of the Omaha metro showing the neighborhoods Ridgeline serves, colored by crew day</title>
+          <path class="river" d="M318 0 C 300 40, 350 70, 338 110 S 322 165, 345 205 S 372 260, 342 300 S 352 350, 372 380"/>
+          <text class="rlbl" x="352" y="138" transform="rotate(78 352 138)">Missouri River</text>
+          <path class="road" d="M40 350 L 140 290 L 205 245 L 270 215 L 336 192"/>
+          <path class="road" d="M205 245 L 205 88 Q 205 70 225 70 L 330 70"/>
+          <path class="road minor" d="M48 168 L 328 168"/>
+          <text class="lbl" x="58" y="338">I-80</text><text class="lbl" x="212" y="110">I-680</text><text class="lbl" x="56" y="160">DODGE ST</text>
+          <g>
+            <circle cx="72" cy="182" r="7" fill="#2d4f2f"/><text x="56" y="204">Elkhorn</text>
+            <circle cx="168" cy="152" r="7" fill="#2d4f2f"/><text x="134" y="140">West Omaha</text>
+            <circle cx="160" cy="250" r="7" fill="#d6a92e"/><text x="122" y="240">Millard</text>
+            <circle cx="232" cy="262" r="7" fill="#d6a92e"/><text x="242" y="258">La Vista</text>
+            <circle cx="214" cy="300" r="7" fill="#d6a92e"/><text x="170" y="322">Papillion</text>
+            <circle cx="282" cy="172" r="7" fill="#7a5a3c"/><text x="262" y="196">Dundee</text>
+            <circle cx="262" cy="124" r="7" fill="#7a5a3c"/><text x="268" y="120">Benson</text>
+            <circle cx="252" cy="226" r="7" fill="#4b4f45"/><text x="262" y="232">Ralston</text>
+            <circle cx="312" cy="300" r="7" fill="#4b4f45"/><text x="302" y="318" text-anchor="end">Bellevue</text>
+            <circle cx="118" cy="62" r="7" fill="#b45f3b"/><text x="98" y="48">Bennington</text>
+            <rect x="318" y="160" width="12" height="12" fill="#1e221d"/><text class="lbl" x="296" y="152">DOWNTOWN</text>
+          </g>
+          <text class="lbl" x="12" y="370">SCHEMATIC · NOT TO SCALE · N ↑</text>
+        </svg>
+      </div>
+      <div>
+        <h2 id="area-h">Where we mow, and which day</h2>
+        <p style="margin-top:16px;color:var(--ink-2);max-width:48ch">Crews stay in one part of town each day, so we're not burning your money on drive time. Saturday is the rain day.</p>
+        <ul class="days">
+          <li><b>Mon</b><i style="background:#2d4f2f"></i><span>Elkhorn, West Omaha (68022, 68154, 68118)</span></li>
+          <li><b>Tue</b><i style="background:#d6a92e"></i><span>Millard, La Vista, Papillion (68137, 68128, 68046)</span></li>
+          <li><b>Wed</b><i style="background:#7a5a3c"></i><span>Dundee, Benson, Midtown (68132, 68104, 68131)</span></li>
+          <li><b>Thu</b><i style="background:#4b4f45"></i><span>Ralston, Bellevue (68127, 68005, 68123)</span></li>
+          <li><b>Fri</b><i style="background:#b45f3b"></i><span>Bennington, north Omaha (68007, 68122)</span></li>
+          <li><b>Sat</b><i style="background:transparent;box-shadow:inset 0 0 0 2px #4b4f45"></i><span>Rain make-up day, mornings only</span></li>
+        </ul>
+        <p class="small">Just outside the lines? Ask anyway. If a few neighbors sign up, we'll add your street.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-h">
+    <div class="wrap faq-grid">
+      <div>
+        <h2 id="faq-h">Things people ask before signing up</h2>
+        <p>Something not here? Text <span style="white-space:nowrap">(402) 555-0148</span>. Sam usually answers within the hour.</p>
+      </div>
+      <div>
+        <details class="qa"><summary>Do I have to sign a contract?<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>No. Mowing is week to week. Text us to stop any time. The only thing with a set price for the season is the snow plan, and you can still cancel that before December 1.</p></details>
+        <details class="qa"><summary>What happens when it rains on my day?<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>We don't mow soaked grass, because it ruts the lawn and clumps. Your visit moves to the next dry day, usually within 48 hours, and Saturday morning is our catch-up. You'll get a text either way.</p></details>
+        <details class="qa"><summary>I have a dog. Is that a problem?<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Not at all. Most of our yards have one. Put the dog inside on your mowing day, and we'll text you when we're 20 minutes out. After a fertilizer round, keep pets off for about 24 hours or until the grass is dry. The yard flag tells you when.</p></details>
+        <details class="qa"><summary>Do I need to be home? What about my gate?<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>You don't need to be home. Give us the gate code or tell us where the latch is, and we'll save it on your account. We check the gate is latched before we leave, every time.</p></details>
+        <details class="qa"><summary>How does billing work?<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>You get one invoice by email on the 1st for last month's visits. Pay by card, Venmo or check. If we skip a week for drought or rain we can't make up, you don't pay for it.</p></details>
+        <details class="qa"><summary>Do you bag the clippings?<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>We mulch them back into the lawn. It feeds the soil and doesn't cause thatch. If it's grown long after a rainy week, we bag that cut so it doesn't leave clumps.</p></details>
+        <details class="qa"><summary>Can I skip a week when I'm on vacation?<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>You can, but we'd suggest keeping the visit. Skipping a week in May means the grass grows past 6 inches, and the next cut stresses it. Most people keep us coming while they're away so the house doesn't look empty.</p></details>
+        <details class="qa"><summary>Is the weed control safe for kids?<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>We use products labeled for home lawns, applied by a licensed applicator at the label rate. We spot-spray weeds instead of blanketing the whole yard. Once it's dry, kids and pets can be back on it.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote" id="quote" aria-labelledby="quote-h">
+    <div class="wrap quote-grid">
+      <div>
+        <h2 id="quote-h">Get a price for your yard</h2>
+        <p class="lede">Most quotes come back by text the same day. No one will call you a dozen times.</p>
+        <div class="quote-direct">
+          <span>Or call or text Sam</span>
+          <a href="tel:+14025550148">(402) 555-0148</a>
+          <span>hello@ridgelinelawn.example</span>
+        </div>
+      </div>
+      <div>
+        <form id="quote-form" novalidate>
+          <div class="f-row">
+            <div class="f" id="f-name"><label for="q-name">Your name</label><input type="text" id="q-name" name="name" autocomplete="name" placeholder="First and last" aria-describedby="e-name"><span class="err" id="e-name" hidden>Tell us your name so we know who's asking.</span></div>
+            <div class="f" id="f-phone"><label for="q-phone">Phone</label><input type="tel" id="q-phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="402-555-0123" aria-describedby="e-phone"><span class="err" id="e-phone" hidden>That number looks short. We need all 10 digits to text your quote.</span></div>
+          </div>
+          <div class="f" id="f-addr"><label for="q-addr">Street address</label><input type="text" id="q-addr" name="address" autocomplete="street-address" placeholder="1234 Maple St, Omaha" aria-describedby="e-addr"><span class="err" id="e-addr" hidden>We need the address to measure your yard.</span></div>
+          <fieldset class="f">
+            <legend>About how big is the yard?</legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="size" value="small"><span>Small lot</span></label>
+              <label class="choice"><input type="radio" name="size" value="quarter" checked><span>About ¼ acre</span></label>
+              <label class="choice"><input type="radio" name="size" value="half"><span>½ acre or more</span></label>
+              <label class="choice"><input type="radio" name="size" value="unsure"><span>Not sure</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="f" id="f-svc" aria-describedby="e-svc">
+            <legend>What do you need?</legend>
+            <div class="choices">
+              <label class="choice"><input type="checkbox" name="svc" value="mowing"><span>Weekly mowing</span></label>
+              <label class="choice"><input type="checkbox" name="svc" value="fert"><span>Fertilizer &amp; weeds</span></label>
+              <label class="choice"><input type="checkbox" name="svc" value="aerate"><span>Aeration &amp; seed</span></label>
+              <label class="choice"><input type="checkbox" name="svc" value="cleanup"><span>Cleanup</span></label>
+              <label class="choice"><input type="checkbox" name="svc" value="mulch"><span>Mulch</span></label>
+              <label class="choice"><input type="checkbox" name="svc" value="snow"><span>Snow removal</span></label>
+            </div>
+            <span class="err" id="e-svc" hidden>Pick at least one, even if it's a guess.</span>
+          </fieldset>
+          <div class="f"><label for="q-msg">Anything else? <span class="opt">(optional)</span></label><textarea id="q-msg" name="message" placeholder="Gate code, dog in the back, steep hill on the side..."></textarea></div>
+          <button class="btn btn-primary" type="submit">Send my quote request</button>
+          <p class="form-foot">We only use your number to send the quote and visit reminders.</p>
+        </form>
+        <div class="done" id="done" hidden tabindex="-1" role="status">
+          <h3>Thanks, <span id="done-name">neighbor</span>.</h3>
+          <p>This is a demo, so nothing was sent. On the live site, this request goes straight to the owner's phone, and the customer gets a text back with a price.</p>
+          <button class="btn btn-line" type="button" id="again" style="justify-self:start">Start over</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#top"><svg viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" fill="#36603a"/><path d="M4 26l9-12 6 8 4-5 9 9z" fill="#d6a92e"/></svg><span>Ridgeline<small>LAWN &amp; SNOW · OMAHA</small></span></a>
+        <p style="margin-top:16px;max-width:30ch">Mowing, feeding, cleanups and snow removal for the Omaha metro since 2016.</p>
+        <div class="social">
+          <a href="https://www.facebook.com/" aria-label="Facebook"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+          <a href="https://www.instagram.com/" aria-label="Instagram"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+          <a href="https://www.google.com/maps" aria-label="Google reviews"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></a>
+        </div>
+      </div>
+      <div><h3>Contact</h3><ul><li><a href="tel:+14025550148">(402) 555-0148</a></li><li>Call or text</li><li>hello@ridgelinelawn.example</li></ul></div>
+      <div><h3>Office hours</h3><dl class="hours"><dt>Mon–Fri</dt><dd>7 a.m.–6 p.m.</dd><dt>Sat</dt><dd>8 a.m.–noon</dd><dt>Snow days</dt><dd>On call from 3 a.m.</dd></dl></div>
+      <div><h3>Service area</h3><p>Omaha, Elkhorn, Millard, Papillion, La Vista, Ralston, Bellevue, Bennington</p></div>
+    </div>
+    <div class="legal">
+      <span>Fully insured. Nebraska commercial pesticide applicator license #00000 (placeholder).</span>
+      <span>© 2026 Ridgeline Lawn &amp; Snow LLC (fictional, for a website demo). Photos: Unsplash.</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Quick contact">
+  <a class="btn btn-line" href="tel:+14025550148"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call</a>
+  <a class="btn btn-straw" href="#quote">Free quote</a>
+</nav>
+
+<script>
+(function () {
+  // before / after slider
+  var cmp = document.getElementById('compare');
+  var range = document.getElementById('ba-range');
+  range.addEventListener('input', function () { cmp.style.setProperty('--pos', range.value + '%'); });
+
+  // today marker on the lawn-year chart
+  var now = new Date();
+  var start = new Date(now.getFullYear(), 0, 1), end = new Date(now.getFullYear() + 1, 0, 1);
+  var t = (now - start) / (end - start);
+  document.getElementById('today').style.setProperty('--t', t.toFixed(4));
+  var sc = document.querySelector('.chart-scroll');
+  if (sc.scrollWidth > sc.clientWidth) sc.scrollLeft = Math.max(0, (sc.scrollWidth - sc.clientWidth) * Math.min(1, t * 1.15));
+
+  // reveal on scroll, only for things below the first screen
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.svc, .steps li, .rev, .seasons > div, .qa, .days li, .about-copy, .about-photo').forEach(function (el) {
+      if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('reveal'); io.observe(el); }
+    });
+  }
+
+  // quote form
+  var form = document.getElementById('quote-form');
+  var done = document.getElementById('done');
+  function setErr(fieldId, errId, bad) {
+    document.getElementById(fieldId).classList.toggle('bad', bad);
+    document.getElementById(errId).hidden = !bad;
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var el = form.elements;
+    var name = el.name.value.trim();
+    var phoneOk = el.phone.value.replace(/\D/g, '').length >= 10;
+    var addrOk = el.address.value.trim().length > 4;
+    var svcOk = form.querySelectorAll('input[name=svc]:checked').length > 0;
+    setErr('f-name', 'e-name', !name);
+    setErr('f-phone', 'e-phone', !phoneOk);
+    setErr('f-addr', 'e-addr', !addrOk);
+    setErr('f-svc', 'e-svc', !svcOk);
+    el.phone.setAttribute('aria-invalid', String(!phoneOk));
+    var first = !name ? el.name : !phoneOk ? el.phone : !addrOk ? el.address : !svcOk ? form.querySelector('input[name=svc]') : null;
+    if (first) { first.focus(); return; }
+    document.getElementById('done-name').textContent = name.split(' ')[0];
+    form.hidden = true; done.hidden = false; done.focus();
+  });
+  document.getElementById('again').addEventListener('click', function () {
+    form.reset(); done.hidden = true; form.hidden = false; form.elements.name.focus();
+  });
+})();
+</script>
+</body>
+</html>

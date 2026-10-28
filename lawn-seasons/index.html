@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+</head>
+<body>
+<title>Ridgeline Lawn &amp; Snow</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Weekly mowing, fall cleanup and snow removal across Omaha, Papillion, Bellevue and Elkhorn.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one column for a phone in a customer's hand. A dark hero band painted with mowing stripes
+   (snow mode: plow lines), then services as a priced list, the area served, a quote form, and a call bar
+   pinned to the bottom. The season switch retints the whole page. */
+:root {
+  --bg: #f4f6ef;
+  --surface: #ffffff;
+  --fg: #16201a;
+  --muted: #4a574d;
+  --line: #d6ddd0;
+  --brand: #2c6a2a;          /* lawn green, text-safe on --bg */
+  --hero-bg: #1b3a1e;
+  --hero-band: #21451f;
+  --hero-fg: #f2f6ea;
+  --hero-muted: #c3d3b8;
+  --call: #f2b51f;            /* equipment yellow */
+  --call-ink: #1a1606;
+  --focus: #f2b51f;
+  --display: "Big Shoulders Display", "Oswald", "Arial Narrow", sans-serif;
+  --body: "Public Sans", "Segoe UI", system-ui, sans-serif;
+}
+:root[data-season="snow"] {
+  --bg: #f1f4f7;
+  --line: #d2dbe4;
+  --muted: #475563;
+  --fg: #121b24;
+  --brand: #1c5a86;
+  --hero-bg: #13263a;
+  --hero-band: #183049;
+  --hero-fg: #eef4fa;
+  --hero-muted: #b9cadb;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #101611; --surface: #172019; --fg: #e8eee3; --muted: #a9b6a6; --line: #2a362c; --brand: #84c46f; --hero-bg: #142a16; --hero-band: #183219; color-scheme: dark }
+  :root:not([data-theme="light"])[data-season="snow"] { --bg: #0e141b; --surface: #151e28; --fg: #e6edf4; --muted: #a5b3c2; --line: #263342; --brand: #8cc3ea; --hero-bg: #0f2033; --hero-band: #13283e }
+}
+:root[data-theme="dark"] { --bg: #101611; --surface: #172019; --fg: #e8eee3; --muted: #a9b6a6; --line: #2a362c; --brand: #84c46f; --hero-bg: #142a16; --hero-band: #183219; color-scheme: dark }
+:root[data-theme="dark"][data-season="snow"] { --bg: #0e141b; --surface: #151e28; --fg: #e6edf4; --muted: #a5b3c2; --line: #263342; --brand: #8cc3ea; --hero-bg: #0f2033; --hero-band: #13283e }
+
+* { box-sizing: border-box }
+body {
+  background: var(--bg); color: var(--fg);
+  font: 400 1.0625rem/1.55 var(--body);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .5s cubic-bezier(.16,1,.3,1), color .5s cubic-bezier(.16,1,.3,1);
+  padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+}
+::selection { background: var(--call); color: var(--call-ink) }
+a { color: var(--brand); text-underline-offset: .2em }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px }
+.wrap { max-width: 44rem; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+h1, h2, h3 { font-family: var(--display); line-height: .95; letter-spacing: -.01em; text-wrap: balance; margin: 0 }
+h2 { font-size: clamp(2.25rem, 8vw, 3.25rem); font-weight: 800; text-transform: uppercase }
+p { margin: 0 }
+:root:not([data-season="lawn"]) [data-show="lawn"], :root:not([data-season="snow"]) [data-show="snow"] { display: none !important }
+svg.i { width: 1.15em; height: 1.15em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round }
+
+/* demo strip */
+.demo { background: var(--fg); color: var(--bg); font-size: .8125rem; font-weight: 600; text-align: center; padding-block: 6px }
+
+/* hero */
+.hero {
+  background-color: var(--hero-bg); color: var(--hero-fg);
+  background-image: linear-gradient(115deg, transparent 0 25%, var(--hero-band) 25% 50%, transparent 50% 75%, var(--hero-band) 75%);
+  background-size: 220px 220px;
+  transition: background-color .5s cubic-bezier(.16,1,.3,1);
+}
+:root[data-season="snow"] .hero { background-image: linear-gradient(180deg, transparent 0 46%, var(--hero-band) 46% 54%, transparent 54%); background-size: 100% 64px }
+.hero .wrap { padding-block: 20px 40px; display: grid; gap: 28px }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap }
+.mark { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 900; font-size: 1.5rem; text-transform: uppercase; letter-spacing: .02em; line-height: 1 }
+.mark svg { width: 34px; height: 34px }
+.top-phone { color: var(--hero-fg); font-weight: 700; text-decoration: none; font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: 6px }
+.hero-copy { display: grid; gap: 16px }
+.hero h1 { font-size: clamp(3.25rem, 15vw, 5.75rem); font-weight: 900; text-transform: uppercase; letter-spacing: -.015em }
+.hero h1 em { font-style: normal; color: var(--call) }
+.hero .lede { color: var(--hero-muted); font-size: 1.125rem; max-width: 34ch }
+.hero.swap .hero-copy { animation: swap .7s cubic-bezier(.16,1,.3,1) }
+@keyframes swap { from { opacity: .35; filter: blur(6px); transform: translateY(6px) } }
+
+.actions { display: flex; flex-wrap: wrap; gap: 12px }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 22px; border-radius: 999px; font: 700 1.0625rem/1 var(--body); text-decoration: none; border: 0; cursor: pointer; transition: transform .2s cubic-bezier(.16,1,.3,1), box-shadow .2s }
+.btn-call { background: var(--call); color: var(--call-ink); box-shadow: 0 6px 18px -6px rgba(0,0,0,.45) }
+.btn-call:hover { transform: translateY(-2px); box-shadow: 0 10px 22px -8px rgba(0,0,0,.5) }
+.btn-ghost { background: transparent; color: var(--hero-fg); box-shadow: inset 0 0 0 2px var(--hero-muted) }
+.btn-ghost:hover { box-shadow: inset 0 0 0 2px var(--hero-fg) }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--hero-muted); font-size: .9375rem; list-style: none; padding: 0; margin: 0 }
+.facts li { display: flex; align-items: center; gap: 6px }
+.facts svg { color: var(--call) }
+
+/* season switch */
+.season { display: grid; grid-template-columns: 1fr 1fr; padding: 4px; border-radius: 999px; background: rgba(0,0,0,.28); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); max-width: 22rem }
+.season button { min-height: 44px; border: 0; border-radius: 999px; background: transparent; color: var(--hero-muted); font: 700 .9375rem/1 var(--body); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background-color .3s, color .3s }
+.season button[aria-pressed="true"] { background: var(--hero-fg); color: var(--hero-bg) }
+
+/* sections */
+section { padding-block: 56px 8px }
+.sec-head { display: grid; gap: 10px; margin-bottom: 24px }
+.sec-head p { color: var(--muted); max-width: 52ch }
+
+.services { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--fg) }
+.services li { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding-block: 18px; border-bottom: 1px solid var(--line) }
+.services h3 { font-size: 1.625rem; font-weight: 800; text-transform: uppercase; line-height: 1.05 }
+.services p { grid-column: 1 / -1; color: var(--muted); max-width: 52ch }
+.price { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; align-self: baseline; color: var(--brand) }
+.price small { display: block; font-weight: 500; color: var(--muted); font-size: .8125rem; text-align: right }
+.note { margin-top: 14px; color: var(--muted); font-size: .875rem }
+
+.trigger { margin-top: 24px; display: flex; gap: 16px; align-items: center; padding: 18px 20px; background: var(--surface); border-radius: 14px; box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px -12px rgba(0,0,0,.18) }
+.trigger b { font-family: var(--display); font-size: 3.25rem; line-height: .8; color: var(--brand); font-weight: 900 }
+.trigger p { color: var(--muted) }
+.trigger strong { color: var(--fg) }
+
+.area { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0 }
+.area li { padding: 8px 14px; border-radius: 999px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); font-weight: 600; font-size: .9375rem }
+.area li span { color: var(--muted); font-weight: 500; font-variant-numeric: tabular-nums; margin-left: 4px }
+
+.steps { list-style: none; counter-reset: s; margin: 0; padding: 0; display: grid; gap: 20px }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 2.75rem 1fr; gap: 2px 14px }
+.steps li::before { content: counter(s); grid-row: span 2; width: 2.75rem; height: 2.75rem; border-radius: 50%; display: grid; place-items: center; background: var(--brand); color: var(--bg); font-family: var(--display); font-weight: 900; font-size: 1.5rem }
+.steps b { font-size: 1.125rem }
+.steps span { color: var(--muted) }
+
+.reviews { display: grid; gap: 14px }
+.review { margin: 0; padding: 20px; background: var(--surface); border-radius: 14px; box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px -12px rgba(0,0,0,.18); display: grid; gap: 10px }
+.stars { display: flex; gap: 2px; color: var(--call) }
+.stars svg { width: 18px; height: 18px; fill: currentColor; stroke: none }
+.review blockquote { margin: 0; font-size: 1.0625rem }
+.review figcaption { color: var(--muted); font-size: .875rem; font-weight: 600 }
+.sample-tag { display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); border: 1px dashed var(--muted); border-radius: 6px; padding: 2px 8px }
+
+/* form */
+form { display: grid; gap: 16px; padding: 22px 20px; background: var(--surface); border-radius: 16px; box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 12px 32px -14px rgba(0,0,0,.22) }
+.field { display: grid; gap: 6px; min-width: 0 }
+label { font-weight: 600; font-size: .9375rem }
+input, select, textarea { width: 100%; font: inherit; color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 10px; min-height: 50px; padding: 12px 14px; caret-color: var(--brand) }
+textarea { min-height: 96px; resize: vertical }
+input::placeholder, textarea::placeholder { color: var(--muted) }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 25%, transparent) }
+.field.bad input { border-color: #c0392b }
+.err { color: #b3261e; font-size: .875rem; font-weight: 600 }
+:root[data-theme="dark"] .err { color: #ff8a80 }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .err { color: #ff8a80 } }
+.row { display: grid; gap: 16px }
+@media (min-width: 560px) { .row { grid-template-columns: 1fr 1fr } }
+form .btn-call { width: 100% }
+.sent { display: grid; gap: 8px; padding: 22px 20px; border-radius: 16px; background: var(--surface); box-shadow: inset 0 0 0 2px var(--brand) }
+.sent b { font-size: 1.25rem }
+.sent p { color: var(--muted) }
+
+footer { margin-top: 64px; padding-block: 32px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9375rem }
+footer .wrap { display: grid; gap: 14px }
+footer .num { font-family: var(--display); font-size: 2.25rem; font-weight: 900; color: var(--fg); user-select: all; font-variant-numeric: tabular-nums; line-height: 1 }
+.hours { display: grid; grid-template-columns: auto 1fr; gap: 2px 16px; margin: 0 }
+.hours dt { font-weight: 600; color: var(--fg) }
+.hours dd { margin: 0; font-variant-numeric: tabular-nums }
+
+/* sticky call bar */
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: var(--fg); padding-top: 10px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(12px, env(safe-area-inset-right, 0px)) }
+.bar .in { max-width: 44rem; margin-inline: auto; display: grid; grid-template-columns: 1.4fr 1fr; gap: 10px }
+.bar .btn { min-height: 50px; padding: 0 12px; font-size: 1rem }
+.bar .btn-text { background: transparent; color: var(--bg); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--bg) 55%, transparent) }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important }
+}
+</style>
+
+<div class="demo">Demo site · your name, photos and Google reviews go here</div>
+
+<header class="hero" id="hero">
+  <div class="wrap">
+    <div class="top">
+      <div class="mark">
+        <svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="8" fill="#f2b51f"/><path d="M5 25 L13 13 L18 20 L22 15 L29 25 Z" fill="#16201a"/><path d="M5 28 H29" stroke="#16201a" stroke-width="2.5" stroke-linecap="round"/></svg>
+        Ridgeline
+      </div>
+      <a class="top-phone" href="tel:+14025550148"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>(402) 555-0148</a>
+    </div>
+
+    <div class="season" role="group" aria-label="Season">
+      <button type="button" id="btn-lawn" data-season-btn="lawn" aria-pressed="true">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20c1-5 2-8 2-12M9 20c0-4 1-7 3-10M14 20c0-3 1-6 4-9M3 20h18"/></svg>Lawn season</button>
+      <button type="button" id="btn-snow" data-season-btn="snow" aria-pressed="false">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M9 4l3 2 3-2M9 20l3-2 3 2"/></svg>Snow season</button>
+    </div>
+
+    <div class="hero-copy">
+      <h1 data-show="lawn">Mowed every week. <em>You never call us twice.</em></h1>
+      <h1 data-show="snow">Your driveway clear <em>before 7 a.m.</em></h1>
+      <p class="lede" data-show="lawn">Weekly mowing, edging and fall leaf cleanup for homes across Omaha. Same crew, same day, every week.</p>
+      <p class="lede" data-show="snow">We plow and shovel once 2 inches hit the ground, so you can back out of the garage on time.</p>
+      <div class="actions">
+        <a class="btn btn-call" href="tel:+14025550148"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call for a price</a>
+        <a class="btn btn-ghost" href="#quote">Get a free quote</a>
+      </div>
+      <ul class="facts">
+        <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Licensed &amp; insured</li>
+        <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Quote back the same day</li>
+        <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>No contract to start</li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-show="lawn">Lawn services</h2>
+        <h2 data-show="snow">Snow services</h2>
+        <p>Clear prices up front. We'll confirm the exact number after a quick look at your yard.</p>
+      </div>
+
+      <ul class="services" data-show="lawn">
+        <li><h3>Weekly mowing</h3><span class="price">from $40<small>per visit</small></span><p>Mow, edge the walks and driveway, string-trim the fence line and blow off the clippings.</p></li>
+        <li><h3>Fall leaf cleanup</h3><span class="price">from $150<small>per yard</small></span><p>Leaves off the lawn and out of the beds, bagged and hauled away before the first snow.</p></li>
+        <li><h3>Aeration &amp; overseed</h3><span class="price">from $120<small>per yard</small></span><p>Core aeration and seed in September, the best window for Omaha's cool-season grass.</p></li>
+        <li><h3>Spring cleanup</h3><span class="price">from $125<small>per yard</small></span><p>Winter debris, bed edging and a first cut to get the yard going in April.</p></li>
+      </ul>
+      <ul class="services" data-show="snow">
+        <li><h3>Driveway &amp; walks</h3><span class="price">from $45<small>per snowfall</small></span><p>Driveway plowed, front walk and steps shoveled, every storm over 2 inches.</p></li>
+        <li><h3>Season contract</h3><span class="price">from $399<small>Nov to Mar</small></span><p>One price for the whole winter. You're on the route every time it snows, no calls needed.</p></li>
+        <li><h3>Ice melt</h3><span class="price">from $15<small>per visit</small></span><p>Pet-safe ice melt on steps and walks, so the mail carrier doesn't slip.</p></li>
+        <li><h3>Small business lots</h3><span class="price">Call<small>for a price</small></span><p>Lots and storefront walks cleared before you open.</p></li>
+      </ul>
+      <p class="note">Sample prices for the demo. Your real prices go here.</p>
+
+      <div class="trigger" data-show="snow">
+        <b>2&Prime;</b>
+        <p><strong>Our trigger depth.</strong> When 2 inches of snow is on the ground, your driveway goes on the route. Under that, we treat for ice if you ask.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="area">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Where we work</h2>
+        <p>Omaha and the suburbs around it. Not on the list? Call and ask.</p>
+      </div>
+      <ul class="area">
+        <li>Dundee<span>68132</span></li>
+        <li>Benson<span>68104</span></li>
+        <li>Millard<span>68137</span></li>
+        <li>Elkhorn<span>68022</span></li>
+        <li>West Omaha<span>68154</span></li>
+        <li>Ralston<span>68127</span></li>
+        <li>La Vista<span>68128</span></li>
+        <li>Papillion<span>68046</span></li>
+        <li>Bellevue<span>68005</span></li>
+        <li>Bennington<span>68007</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head"><h2>How it works</h2></div>
+      <ol class="steps">
+        <li><b>Call, text or fill out the form</b><span>Tell us your address and what you need.</span></li>
+        <li><b>Get your price the same day</b><span>We look at the yard and text you a number.</span></li>
+        <li data-show="lawn"><b>First mow this week</b><span>After that, we show up on the same day every week.</span></li>
+        <li data-show="snow"><b>You're on the route</b><span>Next time it snows, your driveway gets cleared.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>What neighbors say</h2>
+        <p><span class="sample-tag">Sample reviews</span> Your real Google reviews show here.</p>
+      </div>
+      <div class="reviews">
+        <figure class="review">
+          <div class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 17l-6.5 4 2-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 17l-6.5 4 2-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 17l-6.5 4 2-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 17l-6.5 4 2-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 17l-6.5 4 2-7.5L2 9h7z"/></svg></div>
+          <blockquote>A customer's review goes here, word for word from Google.</blockquote>
+          <figcaption>Customer name · Neighborhood</figcaption>
+        </figure>
+        <figure class="review">
+          <div class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 17l-6.5 4 2-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 17l-6.5 4 2-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 17l-6.5 4 2-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 17l-6.5 4 2-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 17l-6.5 4 2-7.5L2 9h7z"/></svg></div>
+          <blockquote>A second review. Three or four short ones beat one long one.</blockquote>
+          <figcaption>Customer name · Neighborhood</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="quote">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Free quote</h2>
+        <p>Takes about a minute. We text you back the same day.</p>
+      </div>
+      <form id="quote-form" novalidate>
+        <div class="row">
+          <div class="field"><label for="q-name">Your name</label><input id="q-name" name="name" autocomplete="name" placeholder="Jordan Smith"></div>
+          <div class="field" id="f-phone"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="402-555-0123" aria-describedby="q-phone-err"><span class="err" id="q-phone-err" hidden>Add a phone number so we can text you the price.</span></div>
+        </div>
+        <div class="field"><label for="q-addr">Street address</label><input id="q-addr" name="address" autocomplete="street-address" placeholder="1234 Maple St, Omaha"></div>
+        <div class="field"><label for="q-svc">What do you need?</label>
+          <select id="q-svc" name="service">
+            <option>Weekly mowing</option><option>Fall leaf cleanup</option><option>Aeration &amp; overseed</option><option>Spring cleanup</option>
+            <option>Snow removal, per storm</option><option>Snow season contract</option><option>Something else</option>
+          </select>
+        </div>
+        <div class="field"><label for="q-msg">Anything we should know? <span style="font-weight:400;color:var(--muted)">(optional)</span></label><textarea id="q-msg" name="message" placeholder="Corner lot, gate code, dog in the backyard..."></textarea></div>
+        <button class="btn btn-call" type="submit">Send my quote request</button>
+      </form>
+      <div class="sent" id="sent" hidden role="status">
+        <b>Request ready.</b>
+        <p>This is the demo, so nothing was sent. On the live site, this form texts the owner right away with the customer's name, number and address.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="mark" style="color:var(--fg)">Ridgeline Lawn &amp; Snow</div>
+    <div class="num">(402) 555-0148</div>
+    <dl class="hours">
+      <dt>Mon–Fri</dt><dd>7 a.m. – 7 p.m.</dd>
+      <dt>Saturday</dt><dd>8 a.m. – 4 p.m.</dd>
+      <dt>Snow days</dt><dd>On call from 3 a.m.</dd>
+    </dl>
+    <p>Omaha, Nebraska. Sample business for a website demo; the name and number are made up.</p>
+  </div>
+</footer>
+
+<nav class="bar" aria-label="Contact">
+  <div class="in">
+    <a class="btn btn-call" href="tel:+14025550148"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call (402) 555-0148</a>
+    <a class="btn btn-text" href="sms:+14025550148"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>Text us</a>
+  </div>
+</nav>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var hero = document.getElementById('hero');
+  var btns = document.querySelectorAll('[data-season-btn]');
+  var svc = document.getElementById('q-svc');
+
+  function apply(season, animate) {
+    root.dataset.season = season;
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.seasonBtn === season)); });
+    svc.selectedIndex = season === 'snow' ? 4 : 0;
+    if (animate) { hero.classList.remove('swap'); void hero.offsetWidth; hero.classList.add('swap'); }
+    try { localStorage.setItem('season', season); } catch (e) {}
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem('season'); } catch (e) {}
+  var m = new Date().getMonth(); // Nov to Mar opens in snow mode
+  apply(saved || (m >= 10 || m <= 2 ? 'snow' : 'lawn'), false);
+  btns.forEach(function (b) { b.addEventListener('click', function () { apply(b.dataset.seasonBtn, true); }); });
+
+  var form = document.getElementById('quote-form');
+  var phone = document.getElementById('q-phone');
+  var field = document.getElementById('f-phone');
+  var err = document.getElementById('q-phone-err');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var digits = phone.value.replace(/\D/g, '');
+    var ok = digits.length >= 10;
+    field.classList.toggle('bad', !ok);
+    err.hidden = ok;
+    phone.setAttribute('aria-invalid', String(!ok));
+    if (!ok) { phone.focus(); return; }
+    form.hidden = true;
+    document.getElementById('sent').hidden = false;
+  });
+})();
+</script>
+
+</body>
+</html>

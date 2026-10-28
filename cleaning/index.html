@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- ===================== EDIT FOR EACH CLIENT (search engines read these 3 lines) ===================== -->
+<title>Sparkline Cleaning Co.</title>
+<meta name="description" content="House cleaning in Omaha, NE. Standard, deep, move-in/move-out and recurring cleaning from insured, background-checked cleaners. Free quote in minutes.">
+<meta name="keywords" content="house cleaning Omaha, maid service Omaha, deep cleaning Omaha, move out cleaning Omaha, recurring cleaning Omaha NE">
+<!-- ===================================================================================================== -->
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<script>
+/* =====================================================================================================
+   CLIENT CONFIG: everything about the business lives here. Change these values for a new client.
+   The page fills itself in from this block (name, phone, prices, areas, reviews, FAQ, Google schema).
+   ===================================================================================================== */
+window.SITE = {
+  name:      "Sparkline Cleaning Co.",
+  tagline:   "Spotless homes across Omaha",
+  city:      "Omaha",
+  state:     "NE",
+  zip:       "68114",
+  phone:     "(402) 555-0199",        // shown on the page
+  phoneLink: "+14025550199",          // used for tap-to-call: +1 then 10 digits, no spaces
+  email:     "hello@sparklinecleaning.example",
+  founded:   2019,
+  formspreeId: "YOUR_FORM_ID",        // from formspree.io, e.g. "xyzabcd". Leave as is for the demo.
+  photos: {                           // put the client's photos in images/ and change the file names here
+    hero:     "images/kitchen.jpg",
+    supplies: "images/supplies.jpg",
+    after1:   "images/bathroom.jpg",
+    after2:   "images/bedroom.jpg",
+    area:     "images/living.jpg"
+  },
+  logo:      "images/logo.svg",
+
+  hours: [
+    ["Mon – Fri", "8 a.m. – 6 p.m."],
+    ["Saturday",  "9 a.m. – 2 p.m."],
+    ["Sunday",    "Closed"]
+  ],
+
+  services: [
+    { name: "Standard clean", price: 129, unit: "per visit",
+      line: "Kitchen counters and sink, bathrooms scrubbed, dusting, beds made, floors vacuumed and mopped." },
+    { name: "Deep clean", price: 229, unit: "per visit",
+      line: "Everything in a standard clean, plus baseboards, inside the microwave, cabinet fronts and the grime around faucets." },
+    { name: "Move-in / Move-out", price: 279, unit: "empty home",
+      line: "Inside every cabinet, drawer, closet, oven and fridge. Built for getting a deposit back." },
+    { name: "Recurring", price: 109, unit: "per visit",
+      line: "The same cleaner on a set day. The more often we come, the less each visit costs.",
+      plans: [["Weekly", 109], ["Every 2 weeks", 119], ["Monthly", 139]] }
+  ],
+
+  areas: ["Dundee", "Benson", "Millard", "Elkhorn", "West Omaha", "Papillion", "Bellevue"],
+
+  // PLACEHOLDERS: replace with the client's real Google reviews (first name + area only).
+  reviews: [
+    { text: "Sample review. Paste a real Google review here, word for word.", name: "First name", area: "Dundee" },
+    { text: "Sample review. Short ones read best.", name: "First name", area: "Millard" },
+    { text: "Sample review. Pick ones that mention being on time, careful with pets, or worth the price.", name: "First name", area: "Elkhorn" }
+  ],
+
+  faq: [
+    ["Do I need to provide supplies?",
+     "No. We bring the vacuum, mop, cloths and products. If you'd rather we use yours, or our plant-based line, say so when you book."],
+    ["What about my pets?",
+     "Pets are fine. Tell us about them when you book. We keep doors shut and gates latched, and we can work around a crate or a closed room."],
+    ["How long does a clean take?",
+     "A standard clean of a 3-bedroom, 2-bath home takes 2 to 3 hours with a team of two. Deep cleans and move-outs take longer. Your quote includes an estimate."],
+    ["What if I need to cancel or reschedule?",
+     "Give us 24 hours' notice and there's no charge. With less notice there may be a $35 fee, because we held that time for you."],
+    ["How do I pay?",
+     "After the clean, by card, Venmo, Zelle or cash. Recurring customers can keep a card on file. You never pay before the work is done."]
+  ]
+};
+</script>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: a black page told as one cleaning day, in time-stamped chapters: Sunday night you ask for
+   a price, Monday we confirm, Tuesday 9 a.m. two cleaners arrive, 5:30 p.m. you walk in. Real room
+   photos carry the page. Cyan is the one accent, used for action, the clock times and progress;
+   blue only marks focus. Corners stay square. */
+:root {
+  --bg: #0a0a0a; --bg-2: #101113; --bg-3: #16181b;
+  --fg: #f2f4f7; --fg-2: #a6adb8; --rule: #24272c;
+  --cyan: #22d3ee; --cyan-ink: #03161a; --blue: #3b82f6; --bad: #ff7a6b;
+  --display: "Archivo", "Arial Black", sans-serif;
+  --ui: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --s-1: .875rem; --s0: 1.0625rem; --s1: 1.25rem; --s2: 1.625rem;
+  --s3: clamp(2.125rem, 5.4vw, 3.5rem); --s4: clamp(2.6rem, 8.6vw, 6.25rem);
+  color-scheme: dark;
+}
+html { scroll-behavior: smooth; scroll-padding-top: 20px }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 var(--s0)/1.6 var(--ui); -webkit-font-smoothing: antialiased; padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)) }
+@media (min-width: 900px) { body { padding-bottom: 0 } }
+img { max-width: 100%; height: auto; display: block }
+[hidden] { display: none !important }
+::selection { background: var(--cyan); color: var(--cyan-ink) }
+a { color: var(--cyan); text-underline-offset: .22em }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px }
+html h1, html h2, html h3 { font-family: var(--display); font-stretch: 112%; font-weight: 800; line-height: 1; letter-spacing: -.025em; text-wrap: balance; margin: 0 }
+html h2 { font-size: var(--s3) }
+html h3 { font-size: var(--s1); font-weight: 700; letter-spacing: -.01em; line-height: 1.2 }
+p { margin: 0; text-wrap: pretty }
+.wrap { width: 100%; max-width: 76rem; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)) }
+@media (min-width: 768px) { .wrap { padding-left: max(40px, env(safe-area-inset-left, 0px)); padding-right: max(40px, env(safe-area-inset-right, 0px)) } }
+.spec { font: 500 .75rem/1.3 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--fg-2) }
+.lede { font-size: var(--s1); line-height: 1.5; color: var(--fg-2); max-width: 42ch }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .55em; min-height: 54px; padding: 0 1.5em; border-radius: 2px; border: 0; cursor: pointer; font: 600 1.0625rem/1 var(--ui); text-decoration: none; transition: background-color .2s, color .2s, box-shadow .2s }
+.btn-cyan { background: var(--cyan); color: var(--cyan-ink) }
+.btn-cyan:hover { background: var(--fg); color: var(--bg) }
+.btn-line { background: transparent; color: var(--fg); box-shadow: inset 0 0 0 1.5px #4a5059 }
+.btn-line:hover { box-shadow: inset 0 0 0 1.5px var(--fg) }
+.i { width: 1.1em; height: 1.1em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round }
+
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 50; background: var(--bg) }
+.progress { position: fixed; left: 0; right: 0; top: env(safe-area-inset-top, 0px); height: 3px; z-index: 50; pointer-events: none }
+.progress i { display: block; height: 100%; background: var(--cyan); transform-origin: 0 50%; transform: scaleX(var(--p, 0)) }
+.demo { background: var(--bg-3); color: var(--fg-2); font: 500 .8125rem/1.4 var(--ui); text-align: center; padding-block: 8px; border-bottom: 1px solid var(--rule) }
+
+/* header */
+.site-head { position: absolute; left: 0; right: 0; z-index: 5 }
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px }
+.logo { display: flex; align-items: center; gap: 10px; color: var(--fg); text-decoration: none; font: 800 1.125rem/1.1 var(--display); font-stretch: 110%; letter-spacing: -.01em }
+.logo img { width: 34px; height: 34px }
+.head-nav { display: none; gap: 28px; font: 500 .9375rem/1 var(--ui) }
+.head-nav a { color: var(--fg); text-decoration: none; opacity: .85 }
+.head-nav a:hover { opacity: 1; color: var(--cyan) }
+.head-phone { display: none; align-items: center; gap: 8px; color: var(--fg); text-decoration: none; font: 600 1rem/1 var(--ui); font-variant-numeric: tabular-nums }
+@media (min-width: 900px) { .head-nav, .head-phone { display: flex } }
+
+/* hero */
+.hero { position: relative; min-height: min(92vh, 860px); display: grid; align-items: end; overflow: hidden; isolation: isolate }
+.hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; z-index: -2; filter: brightness(.7) saturate(.9) }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(10,10,10,.6) 0%, rgba(10,10,10,.1) 30%, rgba(10,10,10,.72) 64%, var(--bg) 100%), linear-gradient(90deg, rgba(10,10,10,.8) 0%, rgba(10,10,10,0) 72%) }
+.hero .wrap { padding-block: 140px 40px }
+.hero h1 { font-size: var(--s4); font-weight: 900; font-stretch: 108%; line-height: .94; letter-spacing: -.035em; max-width: 12ch }
+.hero .lede { margin-top: 22px; color: #cfd4db }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px }
+.trust { list-style: none; margin: 56px 0 0; padding: 22px 0 0; border-top: 1px solid rgba(242,244,247,.18); display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px }
+.trust b { display: block; font: 800 1.375rem/1.05 var(--display); font-stretch: 110%; letter-spacing: -.02em }
+.trust span { font-size: .8125rem; color: var(--fg-2) }
+@media (min-width: 768px) { .trust { grid-template-columns: repeat(4, auto); justify-content: space-between } }
+
+/* chapters */
+.ch { padding-block: 96px }
+@media (min-width: 900px) { .ch { padding-block: 136px } }
+.ch.alt { background: var(--bg-2) }
+.ch-head { display: grid; gap: 14px; max-width: 46rem }
+.clock { display: flex; align-items: baseline; gap: 12px; font: 500 .8125rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--fg-2) }
+.clock b { font: 500 clamp(2.25rem, 6vw, 3.75rem)/.9 var(--mono); letter-spacing: -.04em; color: var(--cyan); text-transform: none }
+.ch-head p { color: var(--fg-2); font-size: var(--s1); line-height: 1.5; max-width: 50ch }
+
+.rail { position: fixed; left: 22px; top: 50%; transform: translateY(-50%); z-index: 20; display: none; list-style: none; margin: 0; padding: 0; gap: 14px; flex-direction: column }
+.rail a { display: flex; align-items: center; gap: 10px; color: var(--fg-2); text-decoration: none; font: 500 .75rem/1 var(--mono); letter-spacing: .04em }
+.rail a::before { content: ""; width: 14px; height: 1.5px; background: currentColor; transition: width .4s cubic-bezier(.16,1,.3,1) }
+.rail a.on { color: var(--cyan) }
+.rail a.on::before { width: 30px }
+@media (min-width: 1440px) { .rail { display: flex } }
+
+/* services table */
+.svc-grid { display: grid; gap: 40px; margin-top: 56px }
+.svc-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--fg) }
+.svc { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 20px; padding-block: 26px; border-bottom: 1px solid var(--rule) }
+.svc h3 { font-size: var(--s2); font-stretch: 108% }
+.svc .price { grid-column: 2; grid-row: 1 / span 2; text-align: right; font: 800 1.75rem/1 var(--display); font-stretch: 105%; white-space: nowrap; font-variant-numeric: tabular-nums }
+.svc .price small { display: block; font: 500 .75rem/1.3 var(--mono); color: var(--fg-2); letter-spacing: .04em; margin-top: 6px; text-transform: uppercase }
+.svc .price .from { display: block; font: 500 .75rem/1 var(--mono); color: var(--fg-2); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 4px }
+.svc p { grid-column: 1; color: var(--fg-2); max-width: 58ch; margin-top: 4px }
+.plans { grid-column: 1 / -1; list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 }
+.plans li { padding: 10px 18px 10px 0; margin-right: 18px; border-right: 1px solid var(--rule); font-size: var(--s-1); color: var(--fg-2) }
+.plans li:last-child { border: 0 }
+.plans b { color: var(--fg); font: 700 1.125rem/1 var(--display); font-stretch: 105%; margin-left: 6px }
+.svc-note { margin-top: 16px; font-size: var(--s-1); color: var(--fg-2) }
+.svc-side img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover }
+.svc-side figcaption { margin-top: 10px }
+@media (min-width: 900px) { .svc-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 64px } .svc-side { position: sticky; top: 40px; align-self: start } }
+
+/* steps */
+.steps { list-style: none; margin: 64px 0 0; padding: 0; display: grid; gap: 36px }
+.steps li { position: relative; padding-left: 40px }
+.steps li::before { content: ""; position: absolute; left: 0; top: 6px; width: 14px; height: 14px; border-radius: 50%; box-shadow: inset 0 0 0 2px var(--cyan) }
+.steps li:first-child::before { background: var(--cyan) }
+.steps li::after { content: ""; position: absolute; left: 6px; top: 26px; bottom: -32px; width: 2px; background: var(--rule) }
+.steps li:last-child::after { display: none }
+.steps .spec { color: var(--cyan); display: block; margin-bottom: 8px }
+.steps h3 { font-size: var(--s2); font-stretch: 108% }
+.steps p { color: var(--fg-2); margin-top: 8px; max-width: 36ch }
+@media (min-width: 900px) {
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px }
+  .steps li { padding: 40px 0 0 }
+  .steps li::after { left: 22px; right: -34px; top: 12px; bottom: auto; width: auto; height: 2px }
+}
+
+/* trust: who's in your home */
+.trust-grid { display: grid; gap: 48px; margin-top: 56px }
+.trust-photo { position: relative; margin: 0 }
+.trust-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover }
+.trust-photo figcaption { margin-top: 10px }
+.trust-stat { position: absolute; right: -10px; bottom: 56px; background: var(--cyan); color: var(--cyan-ink); padding: 16px 18px; max-width: 13rem }
+.trust-stat b { display: block; font: 900 2.5rem/.9 var(--display); font-stretch: 110% }
+.trust-stat span { font: 600 .875rem/1.3 var(--ui) }
+.promises { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--fg) }
+.promises li { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; padding-block: 24px; border-bottom: 1px solid var(--rule) }
+.promises h3 { font-size: var(--s2); font-stretch: 108% }
+.promises p { color: var(--fg-2); max-width: 52ch }
+@media (min-width: 640px) { .promises li { grid-template-columns: 15rem minmax(0, 1fr); gap: 24px; align-items: baseline } }
+@media (min-width: 900px) { .trust-grid { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 72px; align-items: start } .trust-stat { right: -32px } }
+
+/* come home: photo pair + reviews */
+.pair { display: grid; gap: 16px; margin-top: 56px }
+.pair figure { margin: 0 }
+.pair img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover }
+.pair figcaption { margin-top: 10px }
+@media (min-width: 768px) { .pair { grid-template-columns: 1.35fr 1fr; align-items: end } .pair figure:last-child img { aspect-ratio: 4 / 5 } }
+.sample { display: inline-block; font: 500 .6875rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--fg-2); color: var(--fg-2); padding: 5px 8px; vertical-align: middle; margin-right: 8px }
+.rev-intro { margin-top: 80px; color: var(--fg-2) }
+.rev-wall { margin-top: 28px; display: grid; gap: 28px }
+.rev { margin: 0; display: grid; gap: 14px; align-content: start; padding-top: 18px; border-top: 1px solid var(--rule) }
+.rev blockquote { margin: 0 }
+.rev:first-child { border-top-color: var(--cyan) }
+.rev:first-child blockquote { font: 600 var(--s2)/1.3 var(--ui); letter-spacing: -.01em }
+.rev figcaption { font: 600 .875rem/1.3 var(--ui) }
+.rev figcaption span { font-weight: 500; color: var(--fg-2) }
+@media (min-width: 768px) { .rev-wall { grid-template-columns: 2fr 1fr 1fr; gap: 32px } }
+
+/* areas */
+.areas { list-style: none; margin: 48px 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 0 }
+.areas li { font: 800 clamp(1.75rem, 5.2vw, 3.5rem)/1.12 var(--display); font-stretch: 112%; letter-spacing: -.03em }
+.areas li:not(:last-child)::after { content: "/"; color: var(--cyan); font-weight: 500; margin: 0 .35em }
+.area-foot { margin-top: 28px; color: var(--fg-2); max-width: 52ch }
+
+/* faq */
+.faq-grid { display: grid; gap: 32px }
+.faq-grid > div:first-child p { margin-top: 16px; color: var(--fg-2); max-width: 32ch }
+.qa { border-bottom: 1px solid var(--rule) }
+.qa:first-child { border-top: 1px solid var(--fg) }
+.qa summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 22px; font: 600 1.125rem/1.35 var(--ui) }
+.qa summary::-webkit-details-marker { display: none }
+.qa summary:hover { color: var(--cyan) }
+.qa summary .i { color: var(--cyan); transition: transform .3s cubic-bezier(.16,1,.3,1) }
+.qa[open] summary .i { transform: rotate(45deg) }
+.qa p { padding-bottom: 24px; color: var(--fg-2); max-width: 62ch }
+@media (min-width: 900px) { .faq-grid { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 72px } .faq-grid > div:first-child { position: sticky; top: 40px; align-self: start } }
+
+/* quote */
+.quote-grid { display: grid; gap: 40px; margin-top: 56px }
+.direct { display: grid; gap: 4px; align-content: start }
+.direct a { color: var(--fg); font: 800 2.25rem/1 var(--display); font-stretch: 108%; text-decoration: none; font-variant-numeric: tabular-nums; letter-spacing: -.02em }
+.direct a:hover { color: var(--cyan) }
+.direct span { color: var(--fg-2); font-size: var(--s-1) }
+form { background: var(--bg-3); padding: 28px 22px; display: grid; gap: 22px; border-top: 2px solid var(--cyan) }
+@media (min-width: 768px) { form { padding: 40px } }
+.f { display: grid; gap: 8px; min-width: 0 }
+.f-row { display: grid; gap: 22px }
+@media (min-width: 640px) { .f-row { grid-template-columns: 1fr 1fr } }
+.f-row.two { grid-template-columns: 1fr 1fr }
+label { font: 600 .9375rem/1.2 var(--ui) }
+.opt { font-weight: 400; color: var(--fg-2) }
+.field { width: 100%; font: 400 1.0625rem/1.4 var(--ui); color: var(--fg); background: var(--bg); border: 1px solid #343840; border-radius: 2px; min-height: 52px; padding: 12px 14px; caret-color: var(--cyan) }
+textarea.field { min-height: 110px; resize: vertical }
+.field::placeholder { color: #7c838e }
+.field:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(34,211,238,.16) }
+select.field { appearance: none; background: var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2322d3ee' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center / 18px; padding-right: 42px }
+input[type=date].field::-webkit-calendar-picker-indicator { filter: invert(1) brightness(.8) }
+.field.bad { border-color: var(--bad) }
+.err { color: var(--bad); font: 600 .875rem/1.3 var(--ui) }
+form .btn { width: 100% }
+.form-foot { font-size: var(--s-1); color: var(--fg-2); text-align: center }
+.done { background: var(--bg-3); border-top: 2px solid var(--cyan); padding: 36px 28px; display: grid; gap: 14px; align-content: start }
+.done h3 { font-size: var(--s3) }
+.done p { color: var(--fg-2); max-width: 46ch }
+@media (min-width: 900px) { .quote-grid { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 72px } }
+
+/* footer */
+footer { background: #050505; border-top: 1px solid var(--rule); color: var(--fg-2); padding-block: 64px 40px; font-size: .9375rem }
+.foot-grid { display: grid; gap: 36px }
+footer h3 { font: 500 .75rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 14px }
+footer a { color: var(--fg) }
+.hours { display: grid; grid-template-columns: auto 1fr; gap: 2px 16px; margin: 0 }
+.hours dt { color: var(--fg) }
+.hours dd { margin: 0; font-variant-numeric: tabular-nums }
+.legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: .8125rem }
+@media (min-width: 768px) { .foot-grid { grid-template-columns: 1.6fr 1fr 1fr } }
+
+.mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: rgba(10,10,10,.96); border-top: 1px solid var(--rule); padding-top: 10px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(12px, env(safe-area-inset-right, 0px)); display: grid; grid-template-columns: 1fr 1fr; gap: 10px }
+.mbar .btn { min-height: 50px; padding: 0 10px }
+@media (min-width: 900px) { .mbar { display: none } }
+
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1) }
+.reveal.in { opacity: 1; transform: none }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto }
+  *, *::before, *::after { transition: none !important; animation: none !important }
+  .reveal { opacity: 1; transform: none }
+}
+</style>
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><i id="bar"></i></div>
+<div class="demo">Demo site for a made-up Omaha business. Name, number, prices and reviews are placeholders.</div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="#top"><img data-src="logo" src="images/logo.svg" alt="" width="34" height="34"><span data-text="name">Sparkline Cleaning Co.</span></a>
+    <nav class="head-nav" aria-label="Sections"><a href="#prices">Prices</a><a href="#how">How it works</a><a href="#area">Service area</a><a href="#faq">FAQ</a></nav>
+    <a class="head-phone" data-href="tel" href="tel:+14025550199"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span data-text="phone">(402) 555-0199</span></a>
+  </div>
+</header>
+
+<nav aria-label="The day of a clean">
+  <ul class="rail" id="rail">
+    <li><a href="#prices">Sun 7:40p</a></li>
+    <li><a href="#how">Mon 10:05a</a></li>
+    <li><a href="#arrive">Tue 9:00a</a></li>
+    <li><a href="#home">Tue 5:30p</a></li>
+    <li><a href="#quote">Your turn</a></li>
+  </ul>
+</nav>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-h">
+    <img data-src="photos.hero" src="images/kitchen.jpg" width="1400" height="930" fetchpriority="high" alt="Bright white kitchen with clean counters, stainless appliances and a wiped-down island">
+    <div class="wrap">
+      <h1 id="hero-h"><span data-text="tagline">Spotless homes across Omaha</span></h1>
+      <p class="lede">Here's what a cleaning day with <span data-text="name">Sparkline Cleaning Co.</span> looks like, from Sunday night on your phone to Tuesday at 5:30, when you walk into a clean house.</p>
+      <div class="hero-actions">
+        <a class="btn btn-cyan" href="#quote">Get a Free Quote</a>
+        <a class="btn btn-line" data-href="tel" href="tel:+14025550199"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call Now</a>
+      </div>
+      <ul class="trust">
+        <li><b>Insured</b><span>on every job</span></li>
+        <li><b>Background-checked</b><span>every cleaner</span></li>
+        <li><b>24-hour guarantee</b><span>we come back free</span></li>
+        <li><b>Eco option</b><span>plant-based products</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="ch" id="prices" aria-labelledby="prices-h">
+    <div class="wrap">
+      <header class="ch-head">
+        <p class="clock"><b>7:40</b>Sunday night</p>
+        <h2 id="prices-h">You pick the clean you need</h2>
+        <p>Starting prices for a typical 3-bedroom home. Your quote depends on size and condition, and you'll see it before anything is booked.</p>
+      </header>
+      <div class="svc-grid">
+        <div>
+          <ul class="svc-list" id="services-list"></ul>
+          <p class="svc-note">Sample prices for this demo.</p>
+        </div>
+        <figure class="svc-side" style="margin:0">
+          <img data-src="photos.area" src="images/living.jpg" width="1400" height="935" loading="lazy" alt="Tidy living room with a dark sofa, a white dresser and bare, swept floors">
+          <figcaption class="spec">Standard clean · about 2.5 hours</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch alt" id="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <header class="ch-head">
+        <p class="clock"><b>10:05</b>Monday morning</p>
+        <h2 id="how-h">We text you a time</h2>
+        <p>Three steps from asking to a clean house. No in-home estimate, no contract.</p>
+      </header>
+      <ol class="steps">
+        <li><span class="spec">Step 1 · 2 minutes</span><h3>Request a quote</h3><p>Use the form or call. Tell us how many bedrooms and baths, and what kind of clean.</p></li>
+        <li><span class="spec">Step 2 · same day</span><h3>We confirm a time</h3><p>You get a price and a time slot by text. Reply yes and you're on the calendar.</p></li>
+        <li><span class="spec">Step 3 · cleaning day</span><h3>Come home clean</h3><p>We clean, lock up and text you a photo when we leave. You pay after.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="ch" id="arrive" aria-labelledby="arrive-h">
+    <div class="wrap">
+      <header class="ch-head">
+        <p class="clock"><b>9:00</b>Tuesday, you're at work</p>
+        <h2 id="arrive-h">Two cleaners let themselves in</h2>
+        <p>You're trusting someone with your keys. Here's what we do to earn it.</p>
+      </header>
+      <div class="trust-grid">
+        <figure class="trust-photo">
+          <img data-src="photos.supplies" src="images/supplies.jpg" width="960" height="1200" loading="lazy" alt="Amber glass spray bottles of plant-based cleaner next to a wooden scrub brush">
+          <figcaption class="spec">Our eco line, on request</figcaption>
+          <div class="trust-stat"><b>2</b><span>cleaners per home, the same pair each visit on a schedule</span></div>
+        </figure>
+        <ul class="promises">
+          <li><h3>Insured</h3><p>Liability insurance covers every job. If something gets broken, it gets paid for.</p></li>
+          <li><h3>Background-checked</h3><p>Every cleaner passes a background check before they walk into their first home.</p></li>
+          <li><h3>Satisfaction guarantee</h3><p>Missed a spot? Tell us within 24 hours and we'll come back and redo it, free.</p></li>
+          <li><h3>Eco-friendly option</h3><p>Plant-based, fragrance-free products for homes with kids, pets or allergies. Just ask when you book.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch alt" id="home" aria-labelledby="home-h">
+    <div class="wrap">
+      <header class="ch-head">
+        <p class="clock"><b>5:30</b>Tuesday evening</p>
+        <h2 id="home-h">You walk in, and it's done</h2>
+        <p>Beds made, bathrooms scrubbed, floors you can walk on in socks.</p>
+      </header>
+      <div class="pair">
+        <figure><img data-src="photos.after1" src="images/bathroom.jpg" width="1400" height="933" loading="lazy" alt="Clean bathroom with a glass shower, white tile and a clear vanity"><figcaption class="spec">Glass, tile and fixtures</figcaption></figure>
+        <figure><img data-src="photos.after2" src="images/bedroom.jpg" width="1400" height="933" loading="lazy" alt="Bright bedroom with a freshly made white bed and a clear floor"><figcaption class="spec">Beds made, floors vacuumed</figcaption></figure>
+      </div>
+      <p class="rev-intro"><span class="sample">Sample reviews</span>Placeholders. The client's real Google reviews go here.</p>
+      <div class="rev-wall" id="reviews-list"></div>
+    </div>
+  </section>
+
+  <section class="ch" id="area" aria-labelledby="area-h">
+    <div class="wrap">
+      <header class="ch-head">
+        <p class="clock"><b>Where</b></p>
+        <h2 id="area-h">Neighborhoods we clean in <span data-text="city">Omaha</span></h2>
+      </header>
+      <ul class="areas" id="areas-list"></ul>
+      <p class="area-foot">Not on the list? Call and ask. If we're nearby, we'll come.</p>
+    </div>
+  </section>
+
+  <section class="ch alt" id="faq" aria-labelledby="faq-h">
+    <div class="wrap faq-grid">
+      <div>
+        <h2 id="faq-h">Questions people ask first</h2>
+        <p>Something else? Call <a data-href="tel" href="tel:+14025550199" style="white-space:nowrap" data-text="phone">(402) 555-0199</a>.</p>
+      </div>
+      <div id="faq-list"></div>
+    </div>
+  </section>
+
+  <section class="ch" id="quote" aria-labelledby="quote-h">
+    <div class="wrap">
+      <header class="ch-head">
+        <p class="clock"><b>Now</b>your turn</p>
+        <h2 id="quote-h">Get a free quote</h2>
+        <p>Takes about a minute. We'll text or email you a price, usually the same day.</p>
+      </header>
+      <div class="quote-grid">
+        <div class="direct">
+          <span>Or call us</span>
+          <a data-href="tel" href="tel:+14025550199" data-text="phone">(402) 555-0199</a>
+          <span data-text="email">hello@sparklinecleaning.example</span>
+        </div>
+        <div>
+          <form id="quote-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" novalidate>
+            <div class="f-row">
+              <div class="f"><label for="q-name">Name</label><input id="q-name" name="name" class="field" autocomplete="name" placeholder="First and last"><span class="err" hidden>Please add your name.</span></div>
+              <div class="f"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" inputmode="tel" class="field" autocomplete="tel" placeholder="402-555-0123"><span class="err" hidden>We need all 10 digits to text your quote.</span></div>
+            </div>
+            <div class="f"><label for="q-email">Email</label><input id="q-email" name="email" type="email" class="field" autocomplete="email" placeholder="you@example.com"><span class="err" hidden>Please use an email like name@example.com.</span></div>
+            <div class="f-row two">
+              <div class="f"><label for="q-beds">Bedrooms</label><select id="q-beds" name="bedrooms" class="field"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5+</option></select></div>
+              <div class="f"><label for="q-baths">Bathrooms</label><select id="q-baths" name="bathrooms" class="field"><option>1</option><option>1.5</option><option selected>2</option><option>2.5</option><option>3</option><option>4+</option></select></div>
+            </div>
+            <div class="f-row">
+              <div class="f"><label for="q-type">Type of clean</label><select id="q-type" name="clean_type" class="field"></select></div>
+              <div class="f"><label for="q-date">Preferred date</label><input id="q-date" name="preferred_date" type="date" class="field"></div>
+            </div>
+            <div class="f"><label for="q-notes">Notes <span class="opt">(optional)</span></label><textarea id="q-notes" name="notes" class="field" placeholder="Pets, parking, rooms to focus on, how to get in..."></textarea></div>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+            <button class="btn btn-cyan" type="submit">Send my quote request</button>
+            <p class="err" id="form-error" hidden role="alert" style="text-align:center">That didn't go through. Please call us instead, or try again in a minute.</p>
+            <p class="form-foot">We only use your info to send your quote.</p>
+          </form>
+          <div class="done" id="form-done" hidden tabindex="-1" role="status">
+            <h3>Thanks, <span id="done-name">neighbor</span>.</h3>
+            <p id="done-msg">We'll text or email you a price shortly.</p>
+            <button class="btn btn-line" type="button" id="again" style="justify-self:start">Send another</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#top"><img data-src="logo" src="images/logo.svg" alt="" width="34" height="34"><span data-text="name">Sparkline Cleaning Co.</span></a>
+        <p style="margin-top:14px">Serving <span data-text="city">Omaha</span>, <span data-text="state">NE</span></p>
+      </div>
+      <div><h3>Contact</h3><p><a data-href="tel" href="tel:+14025550199" data-text="phone">(402) 555-0199</a></p><p><a data-href="mailto" href="mailto:hello@sparklinecleaning.example" data-text="email" style="word-break:break-all">hello@sparklinecleaning.example</a></p></div>
+      <div><h3>Hours</h3><dl class="hours" id="hours-list"></dl></div>
+    </div>
+    <p class="legal">© <span id="year">2026</span> <span data-text="name">Sparkline Cleaning Co.</span> All rights reserved.</p>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Quick contact">
+  <a class="btn btn-line" data-href="tel" href="tel:+14025550199"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call Now</a>
+  <a class="btn btn-cyan" href="#quote">Free Quote</a>
+</nav>
+
+<script>
+(function () {
+  var S = window.SITE;
+  var $ = function (q) { return document.querySelector(q); };
+  var $$ = function (q) { return Array.prototype.slice.call(document.querySelectorAll(q)); };
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function get(path) { return path.split(".").reduce(function (o, k) { return o && o[k]; }, S); }
+  var plus = '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+
+  // text, photos and links from the config
+  $$("[data-text]").forEach(function (el) { var v = get(el.dataset.text); if (v != null) el.textContent = v; });
+  $$("[data-src]").forEach(function (el) { var v = get(el.dataset.src); if (v) el.src = v; });
+  $$("[data-href=tel]").forEach(function (el) { el.href = "tel:" + S.phoneLink; });
+  $$("[data-href=mailto]").forEach(function (el) { el.href = "mailto:" + S.email; });
+  $("#year").textContent = new Date().getFullYear();
+
+  $("#services-list").innerHTML = S.services.map(function (s) {
+    var plans = s.plans ? '<ul class="plans">' + s.plans.map(function (p) { return "<li>" + esc(p[0]) + "<b>$" + esc(p[1]) + "</b></li>"; }).join("") + "</ul>" : "";
+    return '<li class="svc"><h3>' + esc(s.name) + '</h3><span class="price"><span class="from">from</span>$' + esc(s.price) + "<small>" + esc(s.unit) + "</small></span><p>" + esc(s.line) + "</p>" + plans + "</li>";
+  }).join("");
+  $("#reviews-list").innerHTML = S.reviews.map(function (r) {
+    return '<figure class="rev"><blockquote>' + esc(r.text) + "</blockquote><figcaption>" + esc(r.name) + " <span>· " + esc(r.area) + "</span></figcaption></figure>";
+  }).join("");
+  $("#areas-list").innerHTML = S.areas.map(function (a) { return "<li>" + esc(a) + "</li>"; }).join("");
+  $("#faq-list").innerHTML = S.faq.map(function (f) { return '<details class="qa"><summary>' + esc(f[0]) + plus + "</summary><p>" + esc(f[1]) + "</p></details>"; }).join("");
+  $("#hours-list").innerHTML = S.hours.map(function (h) { return "<dt>" + esc(h[0]) + "</dt><dd>" + esc(h[1]) + "</dd>"; }).join("");
+  $("#q-type").innerHTML = S.services.map(function (s) {
+    return s.plans ? s.plans.map(function (p) { return "<option>Recurring, " + esc(p[0].toLowerCase()) + "</option>"; }).join("") : "<option>" + esc(s.name) + "</option>";
+  }).join("") + "<option>Not sure yet</option>";
+  var today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+  $("#q-date").min = today.toISOString().slice(0, 10);
+
+  // LocalBusiness schema for Google, built from the config
+  var ld = document.createElement("script"); ld.type = "application/ld+json";
+  ld.textContent = JSON.stringify({
+    "@context": "https://schema.org", "@type": "LocalBusiness", "additionalType": "https://en.wikipedia.org/wiki/Maid_service",
+    "name": S.name, "description": "House cleaning in " + S.city + ", " + S.state + ". " + S.tagline + ".",
+    "telephone": S.phoneLink, "email": S.email, "foundingDate": String(S.founded), "priceRange": "$$",
+    "address": { "@type": "PostalAddress", "addressLocality": S.city, "addressRegion": S.state, "postalCode": S.zip, "addressCountry": "US" },
+    "areaServed": S.areas.map(function (a) { return { "@type": "Place", "name": a + ", " + S.city + ", " + S.state }; }),
+    "makesOffer": S.services.map(function (s) { return { "@type": "Offer", "name": s.name, "price": s.price, "priceCurrency": "USD" }; })
+  });
+  document.head.appendChild(ld);
+
+  // reading progress + chapter rail
+  var bar = $("#bar"), links = $$("#rail a"), chapters = links.map(function (a) { return $(a.getAttribute("href")); }), ticking = false;
+  function onScroll() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.setProperty("--p", h > 0 ? Math.min(1, window.scrollY / h).toFixed(4) : 0);
+    var on = -1; chapters.forEach(function (c, i) { if (c && c.getBoundingClientRect().top < window.innerHeight * .4) on = i; });
+    links.forEach(function (a, i) { a.classList.toggle("on", i === on); });
+    ticking = false;
+  }
+  window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+
+  // gentle reveal for things below the first screen
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if ("IntersectionObserver" in window && !reduce) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { rootMargin: "0px 0px -8% 0px" });
+    $$(".ch-head, .svc, .steps li, .promises li, .rev, .qa, .pair figure, .trust-photo").forEach(function (el) {
+      if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add("reveal"); io.observe(el); }
+    });
+  }
+
+  // quote form: posts to Formspree when a real form ID is set, otherwise shows the demo message
+  var form = $("#quote-form"), done = $("#form-done"), errBox = $("#form-error");
+  form.action = "https://formspree.io/f/" + S.formspreeId;
+  function check(input, ok) { input.classList.toggle("bad", !ok); input.parentElement.querySelector(".err").hidden = ok; input.setAttribute("aria-invalid", String(!ok)); return ok; }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var el = form.elements;
+    var fields = [el.name, el.phone, el.email];
+    var ok = [check(el.name, el.name.value.trim().length > 0),
+              check(el.phone, el.phone.value.replace(/\D/g, "").length >= 10),
+              check(el.email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.email.value.trim()))];
+    if (ok.indexOf(false) > -1) { fields[ok.indexOf(false)].focus(); return; }
+    errBox.hidden = true;
+    function showDone(msg) { $("#done-name").textContent = el.name.value.trim().split(" ")[0]; if (msg) $("#done-msg").textContent = msg; form.hidden = true; done.hidden = false; done.focus(); }
+    if (!S.formspreeId || S.formspreeId === "YOUR_FORM_ID") {
+      showDone("This is a demo, so nothing was sent. Once a Formspree form ID is added, requests go straight to the business's email.");
+      return;
+    }
+    var btn = form.querySelector("button[type=submit]"); btn.disabled = true; btn.textContent = "Sending...";
+    fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); showDone(); })
+      .catch(function () { errBox.hidden = false; })
+      .then(function () { btn.disabled = false; btn.textContent = "Send my quote request"; });
+  });
+  $("#again").addEventListener("click", function () { form.reset(); done.hidden = true; form.hidden = false; form.elements.name.focus(); });
+})();
+</script>
+<noscript><p style="padding:24px;text-align:center">Call <a href="tel:+14025550199">(402) 555-0199</a> for a free quote.</p></noscript>
+</body>
+</html>
