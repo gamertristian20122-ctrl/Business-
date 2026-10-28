@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- ===================== EDIT FOR EACH CLIENT (search engines read these 3 lines) ===================== -->
+<title>Kelvin Detail Studio | Car detailing in Omaha</title>
+<meta name="description" content="Hand car detailing in Omaha, NE: maintenance washes, interior details, paint correction and ceramic coating. One car in the studio at a time, by appointment.">
+<meta name="keywords" content="car detailing Omaha, auto detailing Omaha, paint correction Omaha, ceramic coating Omaha, interior detailing Omaha NE">
+<!-- ===================================================================================================== -->
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<script>document.documentElement.className = "js";</script>
+<script>
+/* =====================================================================================================
+   CLIENT CONFIG: everything about the business lives here. Change these values for a new client.
+   The page fills itself in from this block (name, phone, prices, steps, reviews, FAQ, Google schema).
+   ===================================================================================================== */
+window.SITE = {
+  name:      "Kelvin Detail Studio",
+  city:      "Omaha",
+  state:     "NE",
+  zip:       "68106",
+  phone:     "(402) 555-0148",        // shown on the page
+  phoneLink: "+14025550148",          // used for tap-to-call: +1 then 10 digits, no spaces
+  email:     "studio@kelvindetail.example",
+  founded:   2018,
+  formspreeId: "YOUR_FORM_ID",        // from formspree.io, e.g. "xyzabcd". Leave as is for the demo.
+
+  hours: [
+    ["Mon–Fri",  "7:30 a.m.–6 p.m."],
+    ["Saturday", "8 a.m.–2 p.m."],
+    ["Sunday",   "Closed"]
+  ],
+
+  // Prices are listed per vehicle size, in the same order as these names.
+  sizes: ["Car", "SUV", "Truck or van"],
+
+  services: [
+    { name: "Maintenance wash", time: "About 1½ hours", prices: [95, 115, 135],
+      line: "Hand wash, wheels and tires, door jambs, glass inside and out, and a vacuum and wipe-down inside. For cars in good shape, or cars we already look after." },
+    { name: "Interior detail", time: "3 to 4 hours", prices: [225, 265, 305],
+      line: "Seats and carpets shampooed and extracted, leather cleaned and conditioned, and vents, seams and cupholders brushed out." },
+    { name: "Full detail", time: "5 to 6 hours", prices: [395, 455, 525],
+      line: "The interior detail, plus a decontamination wash, clay on the paint and a sealant that lasts about six months." },
+    { name: "Paint correction, one step", time: "1 day", prices: [595, 695, 795],
+      line: "One machine polish that takes out most light swirls and brings the gloss back. Includes the full exterior wash and decontamination." },
+    { name: "Paint correction, two step", time: "2 days", prices: [995, 1195, 1395],
+      line: "A cutting pass for deeper scratches and etched water spots, then a finishing polish. Worth it for black and other dark paint." },
+    { name: "Ceramic coating", time: "2 to 3 days", prices: [1495, 1695, 1895],
+      line: "A one-step correction, then a five-year coating on the paint, wheels and glass. Salt and road grime rinse off instead of sticking." }
+  ],
+
+  // The outside of a full detail, in order. Each step plays its own clip from video/.
+  process: [
+    { title: "Wheels first", time: "20 minutes", clip: "step-wheels", pos: "50% 50%",
+      text: "Brake dust is the dirtiest thing on a car, so wheels, tires and wheel wells get done first, with their own brushes and bucket. Nothing that touches a wheel touches the paint." },
+    { title: "Pre-rinse and foam", time: "25 minutes", clip: "step-prerinse", pos: "38% 50%",
+      text: "A pressure rinse knocks off loose dirt, then thick foam sits for five minutes to soften what's left. Less grit on the paint means fewer scratches from the wash itself." },
+    { title: "Hand wash", time: "40 minutes", clip: "step-wash", pos: "62% 50%",
+      text: "Two buckets with grit guards, a clean mitt for every section, and soft brushes for badges, grilles and window seals." },
+    { title: "Rinse", time: "10 minutes", clip: "step-rinse", pos: "50% 60%",
+      text: "Softened, filtered water from the roof down, so nothing dries into spots on the glass or paint." },
+    { title: "Dry", time: "20 minutes", clip: "step-dry", pos: "58% 50%",
+      text: "Warm air blows water out of mirrors, emblems and trim, and plush towels get the rest. Nothing gets dragged across the paint." },
+    { title: "Inspect and protect", time: "45 minutes", clip: "step-finish", pos: "50% 50%",
+      text: "Every panel under the inspection lights, then sealant on the paint, glass treated and tires dressed. The car stays inside until you pick it up." }
+  ],
+
+  // PLACEHOLDERS: replace with the client's real Google reviews (first name + the service they booked).
+  reviews: [
+    { text: "Sample review. Paste a real Google review here, word for word.", name: "First name", note: "Service they booked" },
+    { text: "Sample review. Short ones read best.", name: "First name", note: "Service they booked" },
+    { text: "Sample review. Pick ones that mention the paint, the timing or the price.", name: "First name", note: "Service they booked" }
+  ],
+
+  faq: [
+    ["How long will you have my car?",
+     "A maintenance wash takes about an hour and a half, and you're welcome to wait. Interior and full details are ready the same evening. Paint correction takes one to two days, and a ceramic coating two to three, because the coating has to cure indoors."],
+    ["Do I need to clean out the car first?",
+     "Just take out car seats and anything valuable. Leave the rest. We bag loose items and put them back on the passenger seat."],
+    ["Will paint correction remove every scratch?",
+     "It removes swirls, light scratches and most water spots. If a scratch catches your fingernail, it's probably through the clear coat, and polishing can only make it harder to see. We'll show you which ones under the light before we start."],
+    ["What does a ceramic coating actually do?",
+     "It's a hard, slick layer over the clear coat. Water beads and runs off, salt and road grime rinse away instead of sticking, and the car stays cleaner between washes. It won't stop rock chips. For that you'd want paint protection film."],
+    ["How do I pay?",
+     "When you pick up, after you've looked the car over. Card, Apple Pay or cash. Ceramic coatings need a $200 deposit when you book, which comes off the total."]
+  ]
+};
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hubot+Sans:wdth,wght@75..125,500..900&family=Mona+Sans:wght@400..700&display=swap">
+<link rel="preload" as="image" href="images/bay-wide.jpg" media="(min-width: 701px)">
+<link rel="preload" as="image" href="images/bay-tall.jpg" media="(max-width: 700px)">
+<style>
+/* Layout: a black page cut like a film. Footage and photos run edge to edge in wide frames, and the type
+   sits in the black above and below them, never on top. Everything comes from one detailing studio
+   shoot, so the photos carry all the color. The one accent is light itself: anything lit (white with a
+   glow, like the LED tubes on the studio ceiling) is something you can act on, or where you are now.
+   The inspection-light photo is the moment to remember; the rest stays quiet. */
+:root {
+  --black: #000; --bay: #0b0e12; --seam: #1e252d; --seam-2: #2e3741;
+  --steel: #8b97a5; --fog: #b9c2cc; --tube: #eef4ff; --bad: #ff6b5e;
+  --glow: 0 0 22px rgba(206, 226, 255, .32);
+  --display: "Hubot Sans", "Arial Black", system-ui, sans-serif;
+  --text: "Mona Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  --head: 64px;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--head) + 16px); -webkit-text-size-adjust: 100% }
+body { margin: 0; background: var(--black); color: var(--tube); font: 400 1.0625rem/1.6 var(--text); -webkit-font-smoothing: antialiased; padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)) }
+@media (min-width: 1000px) { body { padding-bottom: 0 } }
+img, video { display: block; max-width: 100% }
+[hidden] { display: none !important }
+::selection { background: var(--tube); color: #000 }
+a { color: inherit; text-underline-offset: .22em }
+:focus-visible { outline: 2px solid var(--tube); outline-offset: 3px }
+h1, h2, h3 { font-family: var(--display); font-weight: 800; font-stretch: 110%; line-height: 1; letter-spacing: -.022em; margin: 0; text-wrap: balance }
+h2 { font-size: clamp(2.125rem, 1.2rem + 2.9vw, 3.625rem) }
+p { margin: 0; text-wrap: pretty }
+.vh { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0 }
+.wrap { width: 100%; max-width: 82.5rem; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)) }
+@media (min-width: 768px) { .wrap { padding-left: max(40px, env(safe-area-inset-left, 0px)); padding-right: max(40px, env(safe-area-inset-right, 0px)) } }
+.i { width: 1.1em; height: 1.1em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round }
+
+.skip { position: absolute; left: 12px; top: -80px; z-index: 60; background: var(--tube); color: #000; padding: 10px 16px; border-radius: 999px; font-weight: 600; text-decoration: none }
+.skip:focus { top: 12px }
+.demo { background: #0d1014; color: var(--steel); font: 500 .8125rem/1.4 var(--text); text-align: center; padding: 8px 20px; border-bottom: 1px solid var(--seam) }
+
+/* buttons: the primary one is a lit tube, and it brightens under your pointer */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .6em; min-height: 52px; padding: 0 1.55em; border: 0; border-radius: 999px; cursor: pointer; font: 600 1rem/1 var(--text); text-decoration: none; white-space: nowrap; transition: box-shadow .4s var(--ease), color .3s, background-color .3s }
+.btn-tube { background: var(--tube); color: #000; box-shadow: 0 0 0 1px rgba(255, 255, 255, .55), var(--glow) }
+.btn-tube:hover { box-shadow: 0 0 0 1px #fff, 0 0 34px rgba(206, 226, 255, .55), 0 0 90px rgba(206, 226, 255, .2) }
+.btn-line { background: transparent; color: var(--tube); box-shadow: inset 0 0 0 1.5px var(--seam-2) }
+.btn-line:hover { box-shadow: inset 0 0 0 1.5px var(--tube) }
+
+/* header */
+.top { position: sticky; top: 0; z-index: 40; background: rgba(0, 0, 0, .8); -webkit-backdrop-filter: blur(14px) saturate(1.3); backdrop-filter: blur(14px) saturate(1.3); border-bottom: 1px solid transparent; transition: border-color .3s }
+.top.scrolled { border-bottom-color: var(--seam) }
+.top-in { display: flex; align-items: center; gap: 28px; min-height: var(--head) }
+.brand { display: flex; align-items: center; gap: 11px; margin-right: auto; text-decoration: none; font: 750 1.0625rem/1 var(--display); font-stretch: 112%; letter-spacing: -.01em }
+.mark { width: 28px; height: 28px; flex: none; stroke: var(--tube); filter: drop-shadow(0 0 5px rgba(206, 226, 255, .55)) }
+.top-nav { display: none; gap: 26px; font: 500 .9375rem/1 var(--text) }
+.top-nav a { color: var(--fog); text-decoration: none; transition: color .2s }
+.top-nav a:hover { color: var(--tube) }
+.top-phone { display: none; color: var(--tube); text-decoration: none; font: 600 .9375rem/1 var(--text); font-variant-numeric: tabular-nums }
+.top-book { display: none; min-height: 42px; padding: 0 1.2em; font-size: .9375rem }
+.top-call { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; color: var(--tube); box-shadow: inset 0 0 0 1.5px var(--seam-2) }
+@media (min-width: 1000px) { .top-nav, .top-phone, .top-book { display: inline-flex } .top-call { display: none } }
+
+/* hero: a letterboxed frame of the studio, headline in the black above it */
+.hero-head { display: grid; gap: 26px; padding-block: 36px 32px }
+.hero h1 { font-size: clamp(2.5rem, .9rem + 4.3vw, 4.875rem); font-stretch: 112%; line-height: .95; letter-spacing: -.032em }
+.ln { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em }
+.ln > span { display: block }
+.hero-side { display: grid; gap: 22px; align-content: end }
+.lede { color: var(--fog); font-size: 1.1875rem; line-height: 1.5; max-width: 34ch }
+.actions { display: flex; flex-wrap: wrap; gap: 12px }
+@media (min-width: 1000px) {
+  .hero-head { grid-template-columns: minmax(0, 1fr) 22.5rem; gap: 56px; align-items: end; padding-block: 52px 40px }
+}
+.frame { position: relative; overflow: hidden; background: #000 }
+.frame-fill { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover }
+.hero-frame { aspect-ratio: 4 / 5; max-height: 78svh; width: 100% }
+@media (min-width: 701px) { .hero-frame { aspect-ratio: auto; height: clamp(340px, calc(100vw / 2.39), 64vh) } }
+.hero-frame picture img { width: 100%; height: 100%; object-fit: cover }
+.hero-frame video { opacity: 0; transition: opacity 1s ease }
+.hero-frame video.on { opacity: 1 }
+.hero-foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; color: var(--steel); font-size: .875rem }
+.motion-btn { display: inline-flex; flex: none; white-space: nowrap; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px 0 10px; margin-left: -10px; border: 0; border-radius: 999px; background: transparent; color: var(--steel); font: 500 .875rem/1 var(--text); cursor: pointer }
+.motion-btn:hover { color: var(--tube) }
+.motion-btn .i { width: 16px; height: 16px; fill: currentColor; stroke: none }
+.hero-foot p { text-align: right }
+@media (max-width: 520px) { .hero-foot p { display: none } }
+
+/* sections */
+.sec { padding-block: 112px }
+@media (min-width: 1000px) { .sec { padding-block: 160px } }
+.sec + .sec { padding-top: 0 }
+.sec-head { display: grid; gap: 18px; max-width: 46rem }
+.sec-head p, .split-side p { color: var(--fog); font-size: 1.1875rem; line-height: 1.5; max-width: 50ch }
+.split { display: grid; gap: 20px }
+@media (min-width: 1000px) { .split { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 72px; align-items: end } }
+
+/* inspection light (ported from 21st.dev "Torch Reveal" by Motiq, MIT): the same photo twice. The front
+   copy is the bay with the lights off; the copy on top is fully lit and only shows through a soft circle
+   that follows your pointer on a spring. */
+.torch { position: relative; isolation: isolate; overflow: hidden; margin-top: 56px; aspect-ratio: 4 / 3; background: #000; touch-action: pan-y; -webkit-user-select: none; user-select: none }
+@media (min-width: 701px) { .torch { aspect-ratio: auto; height: clamp(380px, 50vw, 86vh) } }
+.torch img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 58%; pointer-events: none }
+.torch-front { filter: brightness(.26) saturate(.5) contrast(1.15) }
+.torch-reveal { position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  -webkit-mask-image: radial-gradient(circle calc(var(--tr, 220) * 1px) at calc(var(--tx, -400) * 1px) calc(var(--ty, -400) * 1px), #000 0 52%, transparent 100%);
+          mask-image: radial-gradient(circle calc(var(--tr, 220) * 1px) at calc(var(--tx, -400) * 1px) calc(var(--ty, -400) * 1px), #000 0 52%, transparent 100%) }
+.torch-reveal img { filter: brightness(1.12) contrast(1.06) }
+.torch-glow { position: absolute; left: 0; top: 0; z-index: 3; width: 560px; height: 560px; border-radius: 50%; pointer-events: none; mix-blend-mode: screen; background: radial-gradient(circle, rgba(214, 230, 255, .15), transparent 62%); transform: translate3d(-999px, -999px, 0); will-change: transform }
+.torch-split { display: none }
+/* reduced motion, or no JavaScript: a still split, lit on the right */
+.torch[data-motion="static"] .torch-reveal, .no-js .torch .torch-reveal { -webkit-mask-image: none; mask-image: none; clip-path: inset(0 0 0 55%) }
+.torch[data-motion="static"] .torch-glow, .no-js .torch .torch-glow { display: none }
+.torch[data-motion="static"] .torch-split, .no-js .torch .torch-split { display: block; position: absolute; z-index: 3; top: 0; bottom: 0; left: 55%; width: 2px; margin-left: -1px; background: var(--tube); box-shadow: 0 0 18px rgba(206, 226, 255, .7) }
+.no-js .hint-mouse, .no-js .hint-touch { display: none } .no-js .hint-still { display: block }
+@media (hover: hover) and (pointer: fine) { .torch[data-motion="animated"] { cursor: none } }
+.torch-note { padding-top: 16px; color: var(--steel); font-size: .875rem }
+.hint-touch, .hint-still { display: none }
+@media (hover: none) { .hint-mouse { display: none } .hint-touch { display: block } }
+.still .hint-mouse, .still .hint-touch { display: none } .still .hint-still { display: block }
+
+/* prices: a menu, with a switch for vehicle size */
+.prices { display: grid; gap: 48px }
+.prices-head { display: grid; gap: 20px; align-content: start }
+.prices-intro { color: var(--fog); font-size: 1.1875rem; line-height: 1.5; max-width: 38ch }
+@media (min-width: 1000px) { .prices { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 88px } .prices-head { position: sticky; top: calc(var(--head) + 48px); align-self: start } }
+.sizes { border: 0; margin: 10px 0 0; padding: 0; min-width: 0 }
+.sizes legend { padding: 0; margin-bottom: 12px; color: var(--steel); font-size: .875rem }
+.sizes-row { position: relative; display: inline-flex; gap: 2px; padding: 5px; border-radius: 999px; background: var(--bay); box-shadow: inset 0 0 0 1px var(--seam) }
+.sizes label { position: relative; z-index: 1; cursor: pointer }
+.sizes input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer }
+.sizes span { display: block; padding: 12px 18px; border-radius: 999px; font: 600 .9375rem/1 var(--text); color: var(--fog); white-space: nowrap; transition: color .35s }
+.sizes label:hover span { color: var(--tube) }
+.sizes input:checked + span { color: #000 }
+.sizes input:focus-visible + span { outline: 2px solid var(--tube); outline-offset: 3px }
+.sizes-light { position: absolute; z-index: 0; left: 0; top: 5px; bottom: 5px; width: 0; border-radius: 999px; background: var(--tube); box-shadow: 0 0 24px rgba(206, 226, 255, .38); transition: transform .55s var(--ease), width .55s var(--ease) }
+.size-note { color: var(--steel); font-size: .875rem; max-width: 40ch }
+.menu { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--seam-2) }
+.item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 24px; padding-block: 30px; border-bottom: 1px solid var(--seam) }
+.item h3, .item-price { font-size: clamp(1.3125rem, 1rem + .9vw, 1.75rem); font-weight: 750; font-stretch: 108%; letter-spacing: -.015em; line-height: 1.15 }
+.item-price { grid-column: 2; grid-row: 1; text-align: right; font-family: var(--display); font-variant-numeric: tabular-nums; white-space: nowrap }
+.item-time { grid-column: 1 / -1; color: var(--steel); font-size: .9375rem }
+.item-line { grid-column: 1 / -1; margin-top: 6px; color: var(--fog); max-width: 56ch }
+.menu-note { margin-top: 18px; color: var(--steel); font-size: .875rem }
+
+/* process (ported from 21st.dev "Scroll 01"): on wide screens the clip stays put on the left and changes
+   with the step you're reading; on phones each step carries its own clip. */
+.proc { display: grid; gap: 64px; margin-top: 64px }
+.proc-stage { display: none }
+.proc-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 72px }
+.step { display: grid; gap: 10px; align-content: start }
+.step-n { font: 750 .9375rem/1 var(--display); font-stretch: 112%; color: var(--steel); font-variant-numeric: tabular-nums; transition: color .4s, text-shadow .4s }
+.step h3 { font-size: clamp(1.625rem, 1.1rem + 1.5vw, 2.375rem) }
+.step-text { color: var(--fog); max-width: 40ch }
+.step-time { color: var(--steel); font-size: .9375rem }
+.clip { position: relative; overflow: hidden; border-radius: 6px; background: var(--bay) }
+.clip video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover }
+.step .clip { order: -1; margin-bottom: 14px; aspect-ratio: 16 / 10 }
+.rail-fill { display: none }
+@media (min-width: 1000px) {
+  .proc { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 88px; margin-top: 24px }
+  /* the stage is centred in the space under the header */
+  .proc-stage { --stage-h: min(calc(100vh - var(--head) - 120px), 600px); display: block; position: sticky; top: calc(var(--head) + (100vh - var(--head) - var(--stage-h)) / 2); align-self: start; height: var(--stage-h) }
+  .proc-stage .clip { height: 100% }
+  .proc-stage video { opacity: 0; transition: opacity .7s var(--ease) }
+  .proc-stage video.on { opacity: 1 }
+  .stage-count { position: absolute; left: 20px; bottom: 18px; z-index: 2; color: var(--tube); font: 700 .875rem/1 var(--display); font-stretch: 110%; font-variant-numeric: tabular-nums; text-shadow: 0 1px 12px rgba(0, 0, 0, .8) }
+  .step .clip { display: none }
+  .proc-col { position: relative }
+  .proc-col::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--seam) }
+  .proc-steps { padding: 26vh 0 30vh 44px; gap: 26vh }
+  .rail-fill { display: block; position: absolute; left: -1px; top: 0; bottom: 0; width: 3px; border-radius: 2px; background: var(--tube); box-shadow: 0 0 14px rgba(206, 226, 255, .65); transform-origin: 50% 0; transform: scaleY(0) }
+  .step.is-on .step-n { color: var(--tube); text-shadow: 0 0 14px rgba(206, 226, 255, .75) }
+}
+
+/* studio */
+.sec-studio { padding-top: 0 }
+.studio-frame { aspect-ratio: 3 / 2 }
+@media (min-width: 701px) { .studio-frame { aspect-ratio: auto; height: clamp(340px, calc(100vw / 2.39), 72vh) } }
+.studio-frame img { object-position: 50% 40% }
+.studio-body { padding-top: 64px }
+@media (min-width: 1000px) { .studio-body { padding-top: 96px } .studio-body.split { align-items: start } }
+.studio-body p { color: var(--fog); font-size: 1.1875rem; line-height: 1.5; max-width: 42ch; margin-top: 20px }
+.facts { display: grid; gap: 28px; margin: 0 }
+@media (min-width: 640px) { .facts { grid-template-columns: 1fr 1fr; gap: 36px 40px } }
+.facts dt { font: 750 1.1875rem/1.2 var(--display); font-stretch: 106%; letter-spacing: -.01em; margin-bottom: 8px }
+.facts dd { margin: 0; color: var(--fog) }
+
+/* reviews */
+.rev-grid { display: grid; gap: 48px }
+@media (min-width: 1000px) { .rev-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 88px; align-items: start } }
+.rev-photo { margin: 0 }
+.rev-photo img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: 55% 50%; border-radius: 6px }
+.rev-photo figcaption { margin-top: 12px; color: var(--steel); font-size: .875rem }
+.rev-intro { margin-top: 20px; color: var(--steel); font-size: .9375rem }
+.sample { display: inline-block; margin-right: 8px; padding: 3px 10px; border: 1px dashed var(--steel); border-radius: 999px; font-size: .8125rem; color: var(--fog) }
+.rev-list { display: grid; gap: 36px; margin-top: 40px }
+.rev { margin: 0; padding-top: 22px; border-top: 1px solid var(--seam) }
+.rev blockquote { margin: 0; font-size: 1.25rem; line-height: 1.45 }
+.rev:first-child { border-top-color: var(--seam-2) }
+.rev:first-child blockquote { font: 650 clamp(1.5rem, 1.1rem + 1.1vw, 2rem)/1.25 var(--display); font-stretch: 104%; letter-spacing: -.012em }
+.rev figcaption { margin-top: 12px; color: var(--steel); font-size: .9375rem }
+
+/* faq */
+.faq { display: grid; gap: 36px }
+.faq-head p { margin-top: 18px; color: var(--fog); max-width: 32ch }
+@media (min-width: 1000px) { .faq { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 88px } .faq-head { position: sticky; top: calc(var(--head) + 48px); align-self: start } }
+.qa { border-bottom: 1px solid var(--seam) }
+.qa:first-child { border-top: 1px solid var(--seam-2) }
+.qa summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-block: 24px; font: 600 1.125rem/1.35 var(--text); transition: color .2s }
+.qa summary::-webkit-details-marker { display: none }
+.qa summary:hover { color: #fff }
+.qa summary .i { color: var(--steel); transition: transform .45s var(--ease), color .3s }
+.qa[open] summary .i { transform: rotate(45deg); color: var(--tube) }
+.qa p { padding-bottom: 26px; color: var(--fog); max-width: 60ch }
+
+/* booking */
+.book { display: grid; gap: 44px; margin-top: 56px }
+@media (min-width: 1000px) { .book { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 88px; margin-top: 64px } }
+.direct { display: grid; gap: 6px; align-content: start }
+.direct span { color: var(--steel); font-size: .9375rem }
+.direct a { font: 750 clamp(1.875rem, 1.3rem + 1.5vw, 2.5rem)/1.1 var(--display); font-stretch: 108%; letter-spacing: -.02em; text-decoration: none; font-variant-numeric: tabular-nums; transition: text-shadow .3s }
+.direct a:hover { text-shadow: 0 0 22px rgba(206, 226, 255, .65) }
+.direct .mail { margin-top: 10px; font: 500 1rem/1.4 var(--text); color: var(--fog); word-break: break-all }
+.direct .mail:hover { text-shadow: none; color: var(--tube) }
+.book-photo { display: none; margin: 48px 0 0 }
+.book-photo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 32% 50%; border-radius: 6px }
+.book-photo figcaption { margin-top: 12px; color: var(--steel); font-size: .875rem }
+@media (min-width: 1000px) { .book-photo { display: block } }
+form { display: grid; gap: 22px; padding: 28px 22px; background: var(--bay); border: 1px solid var(--seam); border-radius: 16px }
+@media (min-width: 768px) { form { padding: 40px } }
+.f { display: grid; gap: 8px; min-width: 0 }
+.f-row { display: grid; gap: 22px }
+@media (min-width: 640px) { .f-row { grid-template-columns: 1fr 1fr } }
+label { font: 600 .9375rem/1.2 var(--text) }
+.opt { font-weight: 400; color: var(--steel) }
+.field { width: 100%; min-height: 52px; padding: 12px 14px; font: 400 1.0625rem/1.4 var(--text); color: var(--tube); background: #000; border: 1px solid var(--seam-2); border-radius: 10px; caret-color: var(--tube); transition: border-color .2s, box-shadow .3s }
+textarea.field { min-height: 112px; resize: vertical }
+.field::placeholder { color: #6f7b88 }
+.field:focus { outline: none; border-color: var(--tube); box-shadow: 0 0 0 4px rgba(206, 226, 255, .12), 0 0 26px rgba(206, 226, 255, .14) }
+select.field { appearance: none; background: #000 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b9c2cc' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center / 18px; padding-right: 44px }
+input[type=date].field::-webkit-calendar-picker-indicator { filter: invert(1) brightness(.8) }
+.field.bad { border-color: var(--bad) }
+.err { color: var(--bad); font: 600 .875rem/1.3 var(--text) }
+form .btn { width: 100% }
+.form-foot { color: var(--steel); font-size: .875rem; text-align: center }
+.done { display: grid; gap: 16px; align-content: start; padding: 40px 28px; background: var(--bay); border: 1px solid var(--seam); border-radius: 16px }
+.done h3 { font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem) }
+.done p { color: var(--fog); max-width: 46ch }
+
+/* footer */
+footer { border-top: 1px solid var(--seam); padding-block: 64px 40px; color: var(--steel); font-size: .9375rem }
+.foot-grid { display: grid; gap: 36px }
+@media (min-width: 768px) { .foot-grid { grid-template-columns: 1.6fr 1fr 1fr } }
+footer h3 { margin-bottom: 14px; font: 600 .9375rem/1 var(--text); letter-spacing: 0; color: var(--tube) }
+footer a { color: var(--fog) }
+footer a:hover { color: var(--tube) }
+.foot-brand p { margin-top: 16px; max-width: 32ch }
+.hours { display: grid; grid-template-columns: auto 1fr; gap: 4px 18px; margin: 0 }
+.hours dt { color: var(--fog) }
+.hours dd { margin: 0; font-variant-numeric: tabular-nums }
+.legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--seam); font-size: .8125rem }
+
+/* phone: call and book are always one tap away */
+.mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; padding: 10px max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); background: rgba(0, 0, 0, .9); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-top: 1px solid var(--seam) }
+.mbar .btn { min-height: 50px; padding: 0 12px }
+@media (min-width: 1000px) { .mbar { display: none } }
+
+/* the one orchestrated moment: the headline rises as the bay lights come up */
+@media (prefers-reduced-motion: no-preference) {
+  .js .ln > span { animation: rise 1.25s var(--ease) both }
+  .js .ln + .ln > span { animation-delay: .14s }
+  .js .hero-side { animation: fade 1.4s .35s ease both }
+  @keyframes rise { from { transform: translateY(108%) } to { transform: none } }
+  @keyframes fade { from { opacity: 0 } to { opacity: 1 } }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto }
+  *, *::before, *::after { transition: none !important; animation: none !important }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="demo">Demo site for a made-up Omaha business. Name, number, prices and reviews are placeholders.</div>
+
+<header class="top" id="top-bar">
+  <div class="wrap top-in">
+    <a class="brand" href="#top"><svg class="mark" viewBox="0 0 32 32" fill="none" stroke-width="3.2" stroke-linecap="round" aria-hidden="true"><path d="M8 5.5v21"/><path d="M14.5 13.5l9.5-8"/><path d="M14.5 18.5l9.5 8"/></svg><span data-text="name">Kelvin Detail Studio</span></a>
+    <nav class="top-nav" aria-label="Sections"><a href="#prices">Prices</a><a href="#process">Process</a><a href="#studio">Studio</a><a href="#faq">FAQ</a></nav>
+    <a class="top-phone" data-href="tel" href="tel:+14025550148" data-text="phone">(402) 555-0148</a>
+    <a class="btn btn-tube top-book" href="#book">Book a detail</a>
+    <a class="top-call" data-href="tel" href="tel:+14025550148" aria-label="Call the studio"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-h">
+    <div class="wrap hero-head">
+      <h1 id="hero-h"><span class="ln"><span>Detailed by hand.</span></span><span class="ln"><span>Checked under the lights.</span></span></h1>
+      <div class="hero-side">
+        <p class="lede">Paint correction, ceramic coating and full details in <span data-text="city">Omaha</span>. One car in the studio at a time, by appointment.</p>
+        <div class="actions">
+          <a class="btn btn-tube" href="#book">Book a detail</a>
+          <a class="btn btn-line" href="#prices">See prices</a>
+        </div>
+      </div>
+    </div>
+    <div class="frame hero-frame">
+      <picture>
+        <source media="(max-width: 700px)" srcset="images/bay-tall.jpg" width="720" height="900">
+        <img class="frame-fill" src="images/bay-wide.jpg" width="1920" height="804" fetchpriority="high" alt="A black coupe with its headlights on, parked in the middle of a dark wash bay">
+      </picture>
+      <video class="frame-fill" id="hero-video" muted loop playsinline preload="none" aria-hidden="true"></video>
+    </div>
+    <div class="wrap hero-foot">
+      <button class="motion-btn" id="motion-btn" type="button" hidden><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path class="ico-pause" d="M4 3h3v10H4zM9 3h3v10H9z"/><path class="ico-play" d="M4.5 2.8v10.4L13 8z" style="display:none"/></svg><span id="motion-label">Pause video</span></button>
+      <p>Drop-off from 7:30 a.m. on weekdays</p>
+    </div>
+  </section>
+
+  <section class="sec" id="light" aria-labelledby="light-h">
+    <div class="wrap split">
+      <h2 id="light-h">Swirls hide until the light hits them</h2>
+      <div class="split-side">
+        <p>In the shade, most cars look fine. Under a bright, direct light you see the fine scratches that automatic washes and dry towels leave behind. We check every panel under inspection lights before we start and again before you pick up.</p>
+      </div>
+    </div>
+    <div class="torch" id="torch" data-motion="animated">
+      <img class="torch-front" src="images/inspect.jpg" width="2200" height="1467" loading="lazy" alt="A black luxury coupe in a dark detailing bay, its paint reflecting the ceiling lights">
+      <div class="torch-reveal" aria-hidden="true"><img src="images/inspect.jpg" width="2200" height="1467" loading="lazy" alt=""></div>
+      <div class="torch-glow" aria-hidden="true"></div>
+      <div class="torch-split" aria-hidden="true"></div>
+    </div>
+    <div class="wrap torch-note" id="torch-note">
+      <p class="hint-mouse">Move your pointer across the photo to light the paint.</p>
+      <p class="hint-touch">Drag sideways across the photo to light the paint.</p>
+      <p class="hint-still">The right side of the photo is lit the way we light a panel.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="prices" aria-labelledby="prices-h">
+    <div class="wrap prices">
+      <div class="prices-head">
+        <h2 id="prices-h">What it costs</h2>
+        <p class="prices-intro">Starting prices. We look the car over with you at drop-off and confirm the price before any work starts.</p>
+        <fieldset class="sizes" id="sizes">
+          <legend>Show prices for</legend>
+          <div class="sizes-row" id="sizes-row"><i class="sizes-light" aria-hidden="true"></i></div>
+        </fieldset>
+        <p class="size-note">Car means sedans, coupes and hatchbacks. Three-row SUVs and minivans are priced as trucks or vans.</p>
+      </div>
+      <div>
+        <ul class="menu" id="menu"></ul>
+        <p class="menu-note">Sample prices for this demo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="process" aria-labelledby="process-h">
+    <div class="wrap">
+      <header class="sec-head">
+        <h2 id="process-h">A full detail, in order</h2>
+        <p>The outside of a full detail, start to finish. Paint correction and coating jobs pick up where this ends.</p>
+      </header>
+      <div class="proc" id="proc">
+        <div class="proc-stage" aria-hidden="true"><div class="clip" id="stage"><span class="stage-count" id="stage-count">1 of 6</span></div></div>
+        <div class="proc-col"><i class="rail-fill" id="rail" aria-hidden="true"></i><ol class="proc-steps" id="steps"></ol></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-studio" id="studio" aria-labelledby="studio-h">
+    <div class="frame studio-frame"><img class="frame-fill" src="images/studio.jpg" width="2200" height="917" loading="lazy" alt="A silver sports car parked alone in a wet, brightly lit detailing bay between plastic curtains"></div>
+    <div class="wrap split studio-body">
+      <div>
+        <h2 id="studio-h">One car at a time</h2>
+        <p>The studio is a heated, enclosed bay in Midtown <span data-text="city">Omaha</span> with room for one car. Yours is the only one in it while we work. We text you the address when you book.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Heated all winter</dt><dd>We work straight through January, and nothing freezes on the paint between steps.</dd></div>
+        <div><dt>Indoors until pickup</dt><dd>Finished cars wait inside, out of the dust and pollen, until you come for them.</dd></div>
+        <div><dt>Insured</dt><dd>Garage keepers insurance covers your car the whole time it's with us.</dd></div>
+        <div><dt>Photos before we start</dt><dd>Rock chips, curb rash, a scratch through the clear coat: we text you a photo, so nothing is a surprise at pickup.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec" id="reviews" aria-labelledby="reviews-h">
+    <div class="wrap rev-grid">
+      <figure class="rev-photo">
+        <img src="images/interior.jpg" width="1400" height="934" loading="lazy" alt="A detailer wiping down the steering wheel of a sports car with a microfiber towel">
+        <figcaption>Interior detail, steering wheel and stitching cleaned by hand</figcaption>
+      </figure>
+      <div>
+        <h2 id="reviews-h">What customers say</h2>
+        <p class="rev-intro"><span class="sample">Sample reviews</span>Placeholders. The client's real Google reviews go here.</p>
+        <div class="rev-list" id="reviews-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="faq-h">
+    <div class="wrap faq">
+      <div class="faq-head">
+        <h2 id="faq-h">Questions people ask first</h2>
+        <p>Something else? Call <a data-href="tel" href="tel:+14025550148" style="white-space:nowrap" data-text="phone">(402) 555-0148</a>.</p>
+      </div>
+      <div id="faq-list"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="book" aria-labelledby="book-h">
+    <div class="wrap">
+      <header class="sec-head">
+        <h2 id="book-h">Book a detail</h2>
+        <p>Tell us about the car. We'll text you a price and a drop-off time, usually the same day.</p>
+      </header>
+      <div class="book">
+        <div class="direct">
+          <span>Or call the studio</span>
+          <a data-href="tel" href="tel:+14025550148" data-text="phone">(402) 555-0148</a>
+          <a class="mail" data-href="mailto" href="mailto:studio@kelvindetail.example" data-text="email">studio@kelvindetail.example</a>
+          <figure class="book-photo"><img src="images/handwash.jpg" width="1400" height="934" loading="lazy" alt="A detailer washing a black car's headlight with a foam sponge"><figcaption>Hand wash, one panel at a time</figcaption></figure>
+        </div>
+        <div>
+          <form id="book-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" novalidate>
+            <div class="f-row">
+              <div class="f"><label for="b-name">Name</label><input id="b-name" name="name" class="field" autocomplete="name" placeholder="First and last"><span class="err" hidden>Please add your name.</span></div>
+              <div class="f"><label for="b-phone">Phone</label><input id="b-phone" name="phone" type="tel" inputmode="tel" class="field" autocomplete="tel" placeholder="402-555-0123"><span class="err" hidden>We need all 10 digits to text you a price.</span></div>
+            </div>
+            <div class="f"><label for="b-email">Email <span class="opt">(optional)</span></label><input id="b-email" name="email" type="email" class="field" autocomplete="email" placeholder="you@example.com"><span class="err" hidden>Please use an email like name@example.com, or leave it blank.</span></div>
+            <div class="f-row">
+              <div class="f"><label for="b-car">Year, make and model</label><input id="b-car" name="vehicle" class="field" placeholder="2021 Honda CR-V"><span class="err" hidden>Please tell us what you drive.</span></div>
+              <div class="f"><label for="b-size">Size</label><select id="b-size" name="size" class="field"></select></div>
+            </div>
+            <div class="f-row">
+              <div class="f"><label for="b-service">Service</label><select id="b-service" name="service" class="field"></select></div>
+              <div class="f"><label for="b-date">Preferred drop-off</label><input id="b-date" name="preferred_date" type="date" class="field"></div>
+            </div>
+            <div class="f"><label for="b-notes">Notes <span class="opt">(optional)</span></label><textarea id="b-notes" name="notes" class="field" placeholder="Pet hair, a stain, a scratch you want us to look at..."></textarea></div>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+            <button class="btn btn-tube" type="submit">Send request</button>
+            <p class="err" id="form-error" hidden role="alert" style="text-align:center">That didn't go through. Please call the studio instead, or try again in a minute.</p>
+            <p class="form-foot">We only use your number to text you about this booking.</p>
+          </form>
+          <div class="done" id="form-done" hidden tabindex="-1" role="status">
+            <h3>Request sent, <span id="done-name">thanks</span>.</h3>
+            <p id="done-msg">We'll text you a price and a drop-off time shortly.</p>
+            <button class="btn btn-line" type="button" id="again" style="justify-self:start">Send another</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top" style="color:var(--tube)"><svg class="mark" viewBox="0 0 32 32" fill="none" stroke-width="3.2" stroke-linecap="round" aria-hidden="true"><path d="M8 5.5v21"/><path d="M14.5 13.5l9.5-8"/><path d="M14.5 18.5l9.5 8"/></svg><span data-text="name">Kelvin Detail Studio</span></a>
+        <p>Studio in <span data-text="city">Omaha</span>, <span data-text="state">NE</span>. We text you the address when you book.</p>
+      </div>
+      <div><h3>Contact</h3><p><a data-href="tel" href="tel:+14025550148" data-text="phone">(402) 555-0148</a></p><p><a data-href="mailto" href="mailto:studio@kelvindetail.example" data-text="email" style="word-break:break-all">studio@kelvindetail.example</a></p></div>
+      <div><h3>Hours</h3><dl class="hours" id="hours-list"></dl></div>
+    </div>
+    <div class="legal"><p>© <span id="year">2026</span> <span data-text="name">Kelvin Detail Studio</span>. All rights reserved.</p><p>Photos and video: Tima Miroshnichenko on Pexels.</p></div>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Quick contact">
+  <a class="btn btn-line" data-href="tel" href="tel:+14025550148"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call</a>
+  <a class="btn btn-tube" href="#book">Book a detail</a>
+</nav>
+
+<script>
+(function () {
+  var S = window.SITE;
+  var $ = function (q, c) { return (c || document).querySelector(q); };
+  var $$ = function (q, c) { return Array.prototype.slice.call((c || document).querySelectorAll(q)); };
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function get(path) { return path.split(".").reduce(function (o, k) { return o && o[k]; }, S); }
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+  var mq = function (q) { return window.matchMedia(q); };
+  var reduce = mq("(prefers-reduced-motion: reduce)").matches;
+  var saveData = !!(navigator.connection && navigator.connection.saveData);
+  var plus = '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+
+  // ---------- text, links and lists from the config ----------
+  $$("[data-text]").forEach(function (el) { var v = get(el.dataset.text); if (v != null) el.textContent = v; });
+  $$("[data-href=tel]").forEach(function (el) { el.href = "tel:" + S.phoneLink; });
+  $$("[data-href=mailto]").forEach(function (el) { el.href = "mailto:" + S.email; });
+  $("#year").textContent = new Date().getFullYear();
+
+  function money(n) { return "$" + Math.round(n).toLocaleString("en-US"); }
+  $("#menu").innerHTML = S.services.map(function (s, i) {
+    return '<li class="item"><h3>' + esc(s.name) + '</h3><p class="item-price"><span class="vh">from </span><span class="num" data-i="' + i + '">' + money(s.prices[0]) + '</span></p><p class="item-time">' + esc(s.time) + '</p><p class="item-line">' + esc(s.line) + "</p></li>";
+  }).join("");
+  $("#sizes-row").insertAdjacentHTML("beforeend", S.sizes.map(function (z, i) {
+    return '<label><input type="radio" name="size-view" value="' + i + '"' + (i ? "" : " checked") + "><span>" + esc(z) + "</span></label>";
+  }).join(""));
+  $("#reviews-list").innerHTML = S.reviews.map(function (r) {
+    return '<figure class="rev"><blockquote>' + esc(r.text) + "</blockquote><figcaption>" + esc(r.name) + ", " + esc(r.note) + "</figcaption></figure>";
+  }).join("");
+  $("#faq-list").innerHTML = S.faq.map(function (f) { return '<details class="qa"><summary>' + esc(f[0]) + plus + "</summary><p>" + esc(f[1]) + "</p></details>"; }).join("");
+  $("#hours-list").innerHTML = S.hours.map(function (h) { return "<dt>" + esc(h[0]) + "</dt><dd>" + esc(h[1]) + "</dd>"; }).join("");
+  $("#b-size").innerHTML = S.sizes.map(function (z) { return "<option>" + esc(z) + "</option>"; }).join("");
+  $("#b-service").innerHTML = S.services.map(function (s) { return "<option>" + esc(s.name) + "</option>"; }).join("") + "<option>Not sure yet</option>";
+  var today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+  $("#b-date").min = today.toISOString().slice(0, 10);
+
+  // LocalBusiness schema for Google, built from the config
+  var ld = document.createElement("script"); ld.type = "application/ld+json";
+  ld.textContent = JSON.stringify({
+    "@context": "https://schema.org", "@type": "AutomotiveBusiness", "additionalType": "https://en.wikipedia.org/wiki/Auto_detailing",
+    "name": S.name, "description": "Car detailing in " + S.city + ", " + S.state + ": washes, interior details, paint correction and ceramic coating.",
+    "telephone": S.phoneLink, "email": S.email, "foundingDate": String(S.founded), "priceRange": "$$$",
+    "address": { "@type": "PostalAddress", "addressLocality": S.city, "addressRegion": S.state, "postalCode": S.zip, "addressCountry": "US" },
+    "makesOffer": S.services.map(function (s) { return { "@type": "Offer", "name": s.name, "price": s.prices[0], "priceCurrency": "USD" }; })
+  });
+  document.head.appendChild(ld);
+
+  // ---------- header line once you scroll ----------
+  var bar = $("#top-bar");
+  function headLine() { bar.classList.toggle("scrolled", window.scrollY > 8); }
+  window.addEventListener("scroll", headLine, { passive: true }); headLine();
+
+  // ---------- video: plays only when motion is welcome, and only while on screen ----------
+  var motionOn = !reduce && !saveData;
+  function arm(v) { if (v.dataset.src && !v.getAttribute("src")) { v.preload = "auto"; v.src = v.dataset.src; } }
+  function play(v) { if (!motionOn) return; arm(v); var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+
+  var hero = $("#hero-video"), tall = mq("(max-width: 700px)"), heroSeen = true, firstPlay = true;
+  function heroSrc() { return tall.matches ? "video/bay-tall.mp4" : "video/bay-wide.mp4"; }
+  function heroGo() {
+    if (!motionOn || !heroSeen) { hero.pause(); return; }
+    if (hero.getAttribute("src") !== heroSrc()) { hero.src = heroSrc(); firstPlay = true; }
+    play(hero);
+  }
+  // The clip opens on black; the first time, skip ahead to where the lights are up so it matches the poster.
+  hero.addEventListener("loadedmetadata", function () { if (firstPlay) { firstPlay = false; try { hero.currentTime = 1.2; } catch (e) {} } });
+  hero.addEventListener("playing", function () { hero.classList.add("on"); });
+  if (tall.addEventListener) tall.addEventListener("change", function () { hero.classList.remove("on"); heroGo(); });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) { heroSeen = es[es.length - 1].isIntersecting; heroGo(); }, { threshold: .05 }).observe(hero);
+  } else { heroGo(); }
+
+  // ---------- pause / play button for everything that moves on its own ----------
+  var motionBtn = $("#motion-btn");
+  function setMotion(on) {
+    motionOn = on;
+    motionBtn.setAttribute("aria-pressed", String(!on));
+    $("#motion-label").textContent = on ? "Pause video" : "Play video";
+    $(".ico-pause", motionBtn).style.display = on ? "" : "none";
+    $(".ico-play", motionBtn).style.display = on ? "none" : "";
+  }
+  if (!reduce) {
+    motionBtn.hidden = false;
+    setMotion(motionOn);
+    motionBtn.addEventListener("click", function () {
+      setMotion(!motionOn);
+      if (motionOn) { heroGo(); procSync(); } else { $$("video").forEach(function (v) { v.pause(); }); }
+    });
+  }
+
+  // ---------- prices: vehicle size switch, with the lit tube sliding to your choice ----------
+  var size = 0, light = $(".sizes-light"), sizeLabels = $$("#sizes-row label");
+  function moveLight() {
+    var lab = sizeLabels[size];
+    light.style.width = lab.offsetWidth + "px";
+    light.style.transform = "translateX(" + lab.offsetLeft + "px)";
+  }
+  function setSize(n, from) {
+    var old = size; size = n;
+    sizeLabels[n].querySelector("input").checked = true;
+    if ($("#b-size").selectedIndex !== n) $("#b-size").selectedIndex = n;
+    moveLight();
+    $$("#menu .num").forEach(function (el) {
+      var s = S.services[+el.dataset.i], a = s.prices[old], b = s.prices[n], t0 = performance.now(), id = {};
+      el._run = id;
+      if (reduce || a === b || from === "form") { el.textContent = money(b); return; }
+      (function tick(t) {
+        if (el._run !== id) return;
+        var k = clamp((t - t0) / 560, 0, 1), e = 1 - Math.pow(1 - k, 3);
+        el.textContent = money(k < 1 ? Math.round((a + (b - a) * e) / 5) * 5 : b);
+        if (k < 1) requestAnimationFrame(tick);
+      })(t0);
+    });
+  }
+  $$("#sizes-row input").forEach(function (inp) { inp.addEventListener("change", function () { setSize(+inp.value); }); });
+  $("#b-size").addEventListener("change", function () { setSize(this.selectedIndex, "form"); });
+  window.addEventListener("resize", moveLight);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveLight);
+  moveLight();
+
+  // ---------- inspection light: ported from 21st.dev "Torch Reveal" (Motiq, MIT) ----------
+  // A spring follows the pointer (hand-held, not glued to it); with no pointer, the light drifts on a slow
+  // Lissajous path so the photo explains itself. The beam is steady, like an LED, so there is no flicker.
+  (function () {
+    var root = $("#torch"), mask = $(".torch-reveal", root), glow = $(".torch-glow", root), GLOW = 560;
+    if (reduce) { root.dataset.motion = "static"; $("#torch-note").classList.add("still"); return; }
+    var P = { x: 0, y: 0, inside: false };
+    function track(e) { var r = root.getBoundingClientRect(); P.x = e.clientX - r.left; P.y = e.clientY - r.top; P.inside = true; }
+    function release() { P.inside = false; }
+    root.addEventListener("pointermove", track);
+    root.addEventListener("pointerdown", track);
+    root.addEventListener("pointerleave", release);
+    root.addEventListener("pointercancel", release);
+    // semi-implicit Euler spring with substeps, stable at low or uneven frame rates
+    function spring(s, target, k, c, dt) {
+      var n = dt > .012 ? Math.ceil(dt / .008) : 1, h = dt / n;
+      for (var i = 0; i < n; i++) { s.v += (-k * (s.x - target) - c * s.v) * h; s.x += s.v * h; }
+    }
+    var tx = { x: -400, v: 0 }, ty = { x: -400, v: 0 }, idle = 9, raf = 0, last = 0, seen = false, tab = true;
+    function frame(now) {
+      raf = requestAnimationFrame(frame);
+      var dt = (now - last) / 1000; last = now;
+      if (!(dt > 0) || dt > .05) dt = .016;
+      idle += dt;
+      var w = root.clientWidth, h = root.clientHeight, gx, gy;
+      if (P.inside) { gx = P.x; gy = P.y; }
+      else { gx = w * (.5 + .36 * Math.sin(idle * .3)); gy = h * (.52 + .26 * Math.sin(idle * .43 + .9)); }
+      spring(tx, gx, 260, 24, dt); spring(ty, gy, 260, 24, dt);
+      mask.style.setProperty("--tx", tx.x.toFixed(1));
+      mask.style.setProperty("--ty", ty.x.toFixed(1));
+      mask.style.setProperty("--tr", clamp(w * .19, 140, 300).toFixed(1));
+      glow.style.transform = "translate3d(" + (tx.x - GLOW / 2).toFixed(1) + "px," + (ty.x - GLOW / 2).toFixed(1) + "px,0)";
+    }
+    function sync() {
+      var run = seen && tab;
+      if (run && !raf) { last = performance.now(); raf = requestAnimationFrame(frame); }
+      else if (!run && raf) { cancelAnimationFrame(raf); raf = 0; }
+    }
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) { seen = es.some(function (e) { return e.isIntersecting; }); sync(); }, { threshold: .06 }).observe(root);
+    } else { seen = true; sync(); }
+    document.addEventListener("visibilitychange", function () { tab = document.visibilityState !== "hidden"; sync(); });
+  })();
+
+  // ---------- process: ported from 21st.dev "Scroll 01" ----------
+  // Each step gets a scroll progress from "its top at 90% of the screen" to "its bottom at 15%". Opacity
+  // and a 20px drift follow that progress, and the step in the middle band (40-60%) owns the stage.
+  var stepsEl = $("#steps"), stage = $("#stage"), rail = $("#rail"), wide = mq("(min-width: 1000px)");
+  stepsEl.insertAdjacentHTML("beforeend", S.process.map(function (p, i) {
+    return '<li class="step"><p class="step-n">' + (i + 1) + '</p><h3>' + esc(p.title) + '</h3><p class="step-text">' + esc(p.text) + '</p><p class="step-time">' + esc(p.time) + '</p>' +
+      '<div class="clip" aria-hidden="true"><video muted loop playsinline preload="none" data-src="video/' + p.clip + '.mp4" data-poster="images/' + p.clip + '.jpg" style="object-position:' + p.pos + '"></video></div></li>';
+  }).join(""));
+  stage.insertAdjacentHTML("afterbegin", S.process.map(function (p, i) {
+    return '<video muted loop playsinline preload="none" data-src="video/' + p.clip + '.mp4" data-poster="images/' + p.clip + '.jpg" style="object-position:' + p.pos + '"' + (i ? "" : ' class="on"') + "></video>";
+  }).join(""));
+  var steps = $$(".step", stepsEl), stageClips = $$("video", stage), ownClips = steps.map(function (s) { return $("video", s); });
+  var active = 0, near = false, ownSeen = [];
+  function poster(v) { if (v.dataset.poster && !v.getAttribute("poster")) v.poster = v.dataset.poster; }
+  function setActive(i) {
+    if (i === active) return;
+    active = i;
+    stageClips.forEach(function (v, j) { v.classList.toggle("on", j === i); });
+    steps.forEach(function (s, j) { s.classList.toggle("is-on", j === i); });
+    $("#stage-count").textContent = (i + 1) + " of " + steps.length;
+    procSync();
+  }
+  // which clips should be loaded and playing right now
+  function procSync() {
+    if (wide.matches) {
+      ownClips.forEach(function (v) { v.pause(); });
+      stageClips.forEach(function (v, j) {
+        if (near) poster(v);
+        if (near && Math.abs(j - active) <= 1 && motionOn) arm(v);
+        if (near && j === active) play(v); else v.pause();
+      });
+    } else {
+      stageClips.forEach(function (v) { v.pause(); });
+      ownClips.forEach(function (v, j) { if (ownSeen[j]) play(v); else v.pause(); });
+    }
+  }
+  function lerpMap(p, xs, ys) {
+    for (var i = 1; i < xs.length; i++) if (p <= xs[i]) return ys[i - 1] + (ys[i] - ys[i - 1]) * (p - xs[i - 1]) / (xs[i] - xs[i - 1]);
+    return ys[ys.length - 1];
+  }
+  var ticking = false;
+  var procEl = $("#proc");
+  function procScroll() {
+    ticking = false;
+    var vh = window.innerHeight, start = vh * .9, end = vh * .15, pr = procEl.getBoundingClientRect();
+    var isNear = pr.top < vh * 1.6 && pr.bottom > -vh * .6;
+    if (isNear !== near) { near = isNear; procSync(); }
+    if (!wide.matches) return;
+    steps.forEach(function (s, i) {
+      var r = s.getBoundingClientRect(), p = clamp((start - r.top) / (r.height + start - end), 0, 1);
+      if (!reduce) {
+        s.style.opacity = lerpMap(p, [0, .3, .7, 1], i === 0 ? [1, .7, 1, 0] : [0, .7, 1, 0]).toFixed(3);
+        s.style.transform = "translateY(" + (20 - 40 * p).toFixed(1) + "px)";
+      }
+      if (p > .4 && p < .6) setActive(i);
+    });
+    var box = stepsEl.getBoundingClientRect();
+    rail.style.transform = "scaleY(" + clamp((vh * .5 - box.top) / box.height, 0, 1).toFixed(4) + ")";
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(procScroll); } }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  function layout() {
+    steps.forEach(function (s) { s.style.opacity = ""; s.style.transform = ""; });
+    steps[0].classList.toggle("is-on", active === 0);
+    procScroll(); procSync();
+  }
+  if (wide.addEventListener) wide.addEventListener("change", layout);
+  if ("IntersectionObserver" in window) {
+    var ownIO = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { var j = ownClips.indexOf($("video", e.target)); poster(ownClips[j]); ownSeen[j] = e.intersectionRatio > .5; });
+      procSync();
+    }, { threshold: [0, .5, 1], rootMargin: "30% 0px 30% 0px" });
+    steps.forEach(function (s) { ownIO.observe($(".clip", s)); });
+  } else { near = true; steps.forEach(function (s, j) { poster(ownClips[j]); }); }
+  steps[0].classList.add("is-on");
+  layout();
+
+  // ---------- booking form: posts to Formspree when a real form ID is set, otherwise shows the demo message ----------
+  var form = $("#book-form"), done = $("#form-done"), errBox = $("#form-error");
+  form.action = "https://formspree.io/f/" + S.formspreeId;
+  function check(input, ok) { input.classList.toggle("bad", !ok); input.parentElement.querySelector(".err").hidden = ok; input.setAttribute("aria-invalid", String(!ok)); return ok; }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var el = form.elements, email = el.email.value.trim();
+    var fields = [el.name, el.phone, el.email, el.vehicle];
+    var ok = [check(el.name, el.name.value.trim().length > 0),
+              check(el.phone, el.phone.value.replace(/\D/g, "").length >= 10),
+              check(el.email, email === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)),
+              check(el.vehicle, el.vehicle.value.trim().length > 1)];
+    if (ok.indexOf(false) > -1) { fields[ok.indexOf(false)].focus(); return; }
+    errBox.hidden = true;
+    function showDone(msg) { $("#done-name").textContent = el.name.value.trim().split(" ")[0]; if (msg) $("#done-msg").textContent = msg; form.hidden = true; done.hidden = false; done.focus(); }
+    if (!S.formspreeId || S.formspreeId === "YOUR_FORM_ID") {
+      showDone("This is a demo, so nothing was sent. Once a Formspree form ID is added, requests go straight to the studio's email.");
+      return;
+    }
+    var btn = form.querySelector("button[type=submit]"); btn.disabled = true; btn.textContent = "Sending...";
+    fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); showDone(); })
+      .catch(function () { errBox.hidden = false; })
+      .then(function () { btn.disabled = false; btn.textContent = "Send request"; });
+  });
+  $("#again").addEventListener("click", function () { form.reset(); setSize(size, "form"); done.hidden = true; form.hidden = false; form.elements.name.focus(); });
+})();
+</script>
+<noscript><p style="padding:24px;text-align:center">Call <a href="tel:+14025550148">(402) 555-0148</a> for prices and to book.</p></noscript>
+</body>
+</html>
