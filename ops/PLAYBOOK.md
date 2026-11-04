@@ -3,7 +3,7 @@
 The daily routine Claude follows to find local businesses, build them a demo site, email them and
 close the sale. A scheduled session runs this once a day. People and private details (names,
 mailing address, sender email) are not in this public repo: they live in the **Settings** tab of the
-Google Sheet "Tristian's Websites - Lead Tracker".
+Google Sheet "Sips Websites - Lead Tracker".
 
 ## The offer
 
