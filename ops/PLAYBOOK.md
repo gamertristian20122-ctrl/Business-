@@ -16,7 +16,7 @@ Google Sheet "Sips Websites - Lead Tracker".
   Commit demos to that branch. Paid customers' finished sites go on Cloudflare Pages (set up when
   the first customer pays).
 - The pitch is true and personal: a 14-year-old in Omaha building websites to save for college,
-  with a parent handling payments.
+  with payments going to the parent's Stripe account.
 
 ## Every day
 
@@ -25,9 +25,9 @@ Google Sheet "Sips Websites - Lead Tracker".
    - Interested or "how does it work": answer, then send the $200 Stripe payment link.
    - "No", "stop", "unsubscribe" or no interest: mark **Do not contact**. Never email them again.
    - A simple question: answer it in plain words.
-   - **Hand to the parent instead of replying** when someone wants a phone call or to meet, asks
+   - **Hand to Tristian instead of replying** when someone wants a phone call or to meet, asks
      for a lower price, is upset, mentions anything legal, or asks personal questions about the
-     kid. Mark **Needs Dijana** and include it in the daily summary.
+     kid. Mark **Needs Tristian** and include it in the daily summary.
 3. **Paid customers.** Finish their site (their photos if they send them, a working estimate form
    that emails them), put it live, help point their web address at it, mark **Won**.
 4. **New leads.** Follow Settings "Target area" and "Business types": Omaha first, then nearby
@@ -60,8 +60,8 @@ Google Sheet "Sips Websites - Lead Tracker".
    - Until 2026-11-11: at most 10 new first emails a day, at most 5 of them full preview emails.
      After that: at most 15 a day.
    - Follow-up 1 four days later, follow-up 2 ten days later, then stop. Stop the moment they reply.
-7. **Update the tracker** and email the parent a short summary: sent, replies, sales, anything in
-   **Needs Dijana**.
+7. **Update the tracker** and send Tristian a short summary: sent, replies, sales, anything in
+   **Needs Tristian**.
 
 ## Hard rules
 
@@ -74,5 +74,5 @@ Google Sheet "Sips Websites - Lead Tracker".
   Never put it on any website or in this repo. Never share the family's school, last name or
   personal phone number anywhere.
 - Money only through the Stripe payment link. No gift cards, no Venmo to strangers, no paying anyone.
-- Never agree to meet anyone in person. Phone calls are the parent's.
+- Never agree to meet anyone in person. Phone calls are Tristian's.
 - One business, at most 3 emails total.
