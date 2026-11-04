@@ -2,27 +2,241 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Website demos</title>
-<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tristian's Websites | $200 websites for Omaha small businesses</title>
+<meta name="description" content="Websites for Omaha small businesses, built by Tristian, 14, saving for college. Fast on phones, tap-to-call, quote form, set up for Google. $200, one time.">
+<meta name="theme-color" content="#0b0c0b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c6f36b'/%3E%3Ctext x='32' y='43' font-family='Arial Black,sans-serif' font-size='28' font-weight='900' text-anchor='middle' fill='%230b0c0b'%3ETW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
-body { margin: 0; background: #0b0c0b; color: #eef1ec; font: 400 17px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif }
-main { max-width: 40rem; margin: 0 auto; padding: 48px 20px }
-h1 { font-size: 2rem; line-height: 1.1; margin: 0 0 8px }
-p { color: #a4aba3; margin: 0 0 32px }
-a { display: block; padding: 18px 0; border-top: 1px solid #262a26; color: #eef1ec; text-decoration: none; font-weight: 600; font-size: 1.125rem }
-a span { display: block; font-weight: 400; font-size: .9375rem; color: #a4aba3 }
-a:hover { color: #3dff72 }
+:root {
+  --bg: #0b0c0b; --bg-2: #121412; --bg-3: #191c19;
+  --fg: #eef1ec; --fg-2: #a4aba3; --rule: #262a26;
+  --lime: #c6f36b; --lime-ink: #10170a; --focus: #7cc4ff;
+  --display: "Archivo", "Arial Black", sans-serif;
+  --ui: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box }
+html { scroll-behavior: smooth }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 1.0625rem/1.6 var(--ui); -webkit-font-smoothing: antialiased }
+img { max-width: 100%; height: auto; display: block }
+a { color: var(--lime); text-underline-offset: .22em }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px }
+h1, h2, h3 { font-family: var(--display); font-stretch: 112%; font-weight: 800; line-height: 1; letter-spacing: -.025em; margin: 0; text-wrap: balance }
+h2 { font-size: clamp(2rem, 5.4vw, 3.25rem) }
+h3 { font-size: 1.375rem; letter-spacing: -.01em; line-height: 1.15 }
+p { margin: 0; text-wrap: pretty }
+.wrap { width: 100%; max-width: 72rem; margin-inline: auto; padding-inline: max(20px, env(safe-area-inset-left, 0px)) }
+@media (min-width: 768px) { .wrap { padding-inline: 40px } }
+.spec { font: 500 .75rem/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--fg-2) }
+.lede { font-size: 1.25rem; line-height: 1.5; color: var(--fg-2); max-width: 40ch }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5em; min-height: 54px; padding: 0 1.5em; border-radius: 2px; font: 600 1.0625rem/1 var(--ui); text-decoration: none; transition: background-color .2s, color .2s, box-shadow .2s }
+.btn-lime { background: var(--lime); color: var(--lime-ink) }
+.btn-lime:hover { background: var(--fg) }
+.btn-line { color: var(--fg); box-shadow: inset 0 0 0 1.5px #4a514a }
+.btn-line:hover { box-shadow: inset 0 0 0 1.5px var(--fg) }
+
+header { border-bottom: 1px solid var(--rule) }
+header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px }
+.logo { display: flex; align-items: center; gap: 10px; color: var(--fg); text-decoration: none; font: 800 1.125rem/1 var(--display); font-stretch: 110% }
+.logo i { display: grid; place-items: center; width: 34px; height: 34px; background: var(--lime); color: var(--lime-ink); font: 900 .9375rem/1 var(--display); font-style: normal; border-radius: 6px }
+nav { display: none; gap: 26px; font-weight: 500 }
+nav a { color: var(--fg); text-decoration: none; opacity: .85 }
+nav a:hover { opacity: 1; color: var(--lime) }
+@media (min-width: 820px) { nav { display: flex } }
+
+.hero { padding-block: 64px 72px }
+@media (min-width: 900px) { .hero { padding-block: 104px 112px } }
+.hero h1 { font-size: clamp(2.75rem, 9vw, 6rem); font-weight: 900; line-height: .94; letter-spacing: -.035em; max-width: 13ch; margin-top: 18px }
+.hero h1 em { font-style: normal; color: var(--lime) }
+.hero .lede { margin-top: 24px }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px }
+.hero-note { margin-top: 20px; color: var(--fg-2); font-size: .9375rem }
+
+section { padding-block: 88px; border-top: 1px solid var(--rule) }
+@media (min-width: 900px) { section { padding-block: 120px } }
+.alt { background: var(--bg-2) }
+.head { display: grid; gap: 14px; max-width: 44rem }
+.head p { color: var(--fg-2); font-size: 1.125rem; max-width: 52ch }
+
+.examples { list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 16px }
+@media (min-width: 900px) { .examples { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px } }
+.examples a { display: grid; gap: 12px; color: var(--fg); text-decoration: none }
+.examples img { width: 100%; aspect-ratio: 1 / 2; object-fit: cover; object-position: top; border: 1px solid var(--rule); border-radius: 14px; transition: transform .4s cubic-bezier(.16,1,.3,1), border-color .2s }
+.examples a:hover img { transform: translateY(-6px); border-color: var(--lime) }
+.examples b { font: 700 1.0625rem/1.2 var(--ui) }
+.examples span { display: block; color: var(--fg-2); font-size: .875rem; font-weight: 400; margin-top: 2px }
+.ex-note { margin-top: 28px; color: var(--fg-2); font-size: .9375rem }
+
+.get { list-style: none; margin: 48px 0 0; padding: 0; border-top: 1px solid var(--fg); display: grid }
+.get li { display: grid; gap: 6px; padding-block: 22px; border-bottom: 1px solid var(--rule) }
+.get p { color: var(--fg-2); max-width: 56ch }
+@media (min-width: 720px) { .get li { grid-template-columns: 18rem minmax(0, 1fr); gap: 24px; align-items: baseline } }
+
+.price-grid { display: grid; gap: 40px; margin-top: 48px }
+@media (min-width: 900px) { .price-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 72px; align-items: start } }
+.price-card { background: var(--bg-3); border-top: 3px solid var(--lime); padding: 32px 26px }
+.price-card .big { font: 900 clamp(4rem, 14vw, 6.5rem)/.9 var(--display); font-stretch: 105%; letter-spacing: -.04em }
+.price-card .big small { font: 500 .8125rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--fg-2); margin-left: 10px; vertical-align: middle }
+.price-card p { color: var(--fg-2); margin-top: 18px }
+.price-card .btn { margin-top: 26px; width: 100% }
+.fine { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px }
+.fine li { padding-left: 28px; position: relative; color: var(--fg-2) }
+.fine li::before { content: ""; position: absolute; left: 0; top: .55em; width: 12px; height: 2px; background: var(--lime) }
+.fine b { color: var(--fg); font-weight: 600 }
+
+.steps { list-style: none; margin: 48px 0 0; padding: 0; display: grid; gap: 36px; counter-reset: s }
+.steps li { counter-increment: s; display: grid; gap: 10px; padding-top: 20px; border-top: 2px solid var(--rule) }
+.steps li:first-child { border-top-color: var(--lime) }
+.steps li::before { content: "0" counter(s); font: 500 .8125rem/1 var(--mono); color: var(--lime); letter-spacing: .06em }
+.steps p { color: var(--fg-2); max-width: 34ch }
+@media (min-width: 900px) { .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px } }
+
+.policy { display: grid; gap: 32px; margin-top: 48px }
+@media (min-width: 900px) { .policy { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px } }
+.policy h3 { font-size: 1.125rem }
+.policy p { color: var(--fg-2); margin-top: 10px; font-size: .9375rem }
+
+.contact { display: grid; gap: 28px; margin-top: 40px }
+.contact a.mail { color: var(--fg); font: 800 clamp(1.5rem, 5.5vw, 2.75rem)/1.1 var(--display); font-stretch: 105%; letter-spacing: -.02em; text-decoration: none; word-break: break-word }
+.contact a.mail:hover { color: var(--lime) }
+.contact p { color: var(--fg-2) }
+
+footer { border-top: 1px solid var(--rule); padding-block: 40px; color: var(--fg-2); font-size: .875rem }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto } * { transition: none !important } }
 </style>
 </head>
 <body>
-<main>
-<h1>Website demos</h1>
-<p>Sample sites for Omaha small businesses. The businesses are made up; names, numbers and reviews are placeholders.</p>
-<a href="cleaning/">House cleaning<span>Black, story-led, one cleaning day</span></a>
-<a href="lawn-dark/">Lawn care, dark<span>Black with green accent, told in chapters</span></a>
-<a href="lawn/">Lawn care, classic<span>Paper and green, before/after slider, lawn calendar</span></a>
-<a href="lawn-seasons/">Lawn &amp; snow, simple<span>One page that switches between lawn and snow season</span></a>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><i aria-hidden="true">TW</i>Tristian's Websites</a>
+    <nav aria-label="Sections"><a href="#examples">Examples</a><a href="#price">Price</a><a href="#how">How it works</a><a href="#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <p class="spec">Omaha, Nebraska · Websites for local businesses</p>
+      <h1>A real website for your business. <em>$200.</em></h1>
+      <p class="lede">I'm Tristian. I'm 14, and I build websites for Omaha small businesses to save for college. Fast on phones, easy to find on Google, and made to get you calls.</p>
+      <div class="hero-actions">
+        <a class="btn btn-lime" href="#examples">See examples</a>
+        <a class="btn btn-line" href="mailto:EMAIL_PLACEHOLDER">Email me</a>
+      </div>
+      <p class="hero-note">My mom, Dijana, runs the business side: payments and paperwork.</p>
+    </div>
+  </div>
+
+  <section id="examples" aria-labelledby="ex-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="spec">Examples</p>
+        <h2 id="ex-h">Sites I've built</h2>
+        <p>Practice sites for made-up Omaha businesses. Tap one to try it on your phone.</p>
+      </div>
+      <ul class="examples">
+        <li><a href="cleaning/"><img src="assets/examples/cleaning.jpg" width="540" height="1080" loading="lazy" alt="Phone view of a dark house cleaning website with a Get a Free Quote button"><b>House cleaning<span>Dark, tells the story of one cleaning day</span></b></a></li>
+        <li><a href="lawn-dark/"><img src="assets/examples/lawn-dark.jpg" width="540" height="1080" loading="lazy" alt="Phone view of a lawn care website with a bright green headline"><b>Lawn care<span>Black with green, told in chapters</span></b></a></li>
+        <li><a href="lawn/"><img src="assets/examples/lawn.jpg" width="540" height="1080" loading="lazy" alt="Phone view of a lawn care website on a paper-colored background"><b>Lawn care, classic<span>Before-and-after slider, lawn calendar</span></b></a></li>
+        <li><a href="lawn-seasons/"><img src="assets/examples/lawn-seasons.jpg" width="540" height="1080" loading="lazy" alt="Phone view of a lawn and snow removal website with a season switch"><b>Lawn &amp; snow<span>Switches between lawn and snow season</span></b></a></li>
+      </ul>
+      <p class="ex-note">Yours is built around your business: your name, services, reviews and photos.</p>
+    </div>
+  </section>
+
+  <section class="alt" aria-labelledby="get-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="spec">What you get</p>
+        <h2 id="get-h">Everything a local business site needs</h2>
+      </div>
+      <ul class="get">
+        <li><h3>Built for your business</h3><p>Your services, real reviews, hours and the towns you serve, written so customers get it in seconds.</p></li>
+        <li><h3>Calls and quote requests</h3><p>A tap-to-call button on every screen and a quote form that sends requests straight to your email.</p></li>
+        <li><h3>Phone first, and fast</h3><p>Most of your customers look you up on a phone, so that's where it's designed first. Pages load quickly.</p></li>
+        <li><h3>Set up for Google</h3><p>Your business name, area and services are marked up the way Google reads them.</p></li>
+        <li><h3>30 days of free changes</h3><p>New photo, new price, a typo: send it over and I'll fix it.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="price" aria-labelledby="price-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="spec">Price</p>
+        <h2 id="price-h">One price, paid once</h2>
+      </div>
+      <div class="price-grid">
+        <div class="price-card">
+          <p class="big">$200<small>one time</small></p>
+          <p>You see your finished site first. You only pay if you like it.</p>
+          <a class="btn btn-lime" href="mailto:EMAIL_PLACEHOLDER?subject=Website%20for%20my%20business">Ask for your free preview</a>
+        </div>
+        <ul class="fine">
+          <li><b>No monthly fee from me.</b> Hosting is free.</li>
+          <li><b>Your web address.</b> Keep the one you have, or buy one for about $12 a year. I'll help you set it up.</li>
+          <li><b>Pay by card</b> through Stripe, after you've said yes to your site.</li>
+          <li><b>You own it.</b> Your words, photos and web address stay yours.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="alt" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="spec">How it works</p>
+        <h2 id="how-h">Three steps, no risk</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>I build a preview</h3><p>Free. I make a preview of your site using your business details. No cost, no commitment.</p></li>
+        <li><h3>You decide</h3><p>Look at it on your phone. If you like it, pay $200 by card. If not, that's the end of it.</p></li>
+        <li><h3>It goes live</h3><p>I put it on your web address and make any changes you ask for in the first 30 days.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="pol-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="spec">The fine print</p>
+        <h2 id="pol-h">Policies</h2>
+      </div>
+      <div class="policy">
+        <div><h3>Refunds</h3><p>If you're not happy within 14 days of paying, email us and we'll refund the full $200.</p></div>
+        <div><h3>Privacy</h3><p>We only use your contact and business details to build your site and talk with you about it. We never sell or share them. Card payments are handled by Stripe; we never see your card number.</p></div>
+        <div><h3>Your content</h3><p>Only send photos and text you have the right to use. Everything you send stays yours.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="alt" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="spec">Contact</p>
+        <h2 id="contact-h">Want a free preview of your site?</h2>
+      </div>
+      <div class="contact">
+        <a class="mail" href="mailto:EMAIL_PLACEHOLDER">EMAIL_PLACEHOLDER</a>
+        <p>Tell us your business name and we'll send a preview, usually within a few days. Serving Omaha, Nebraska and nearby towns.</p>
+      </div>
+    </div>
+  </section>
 </main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="y">2026</span> Tristian's Websites · Omaha, NE</span>
+    <span>Payments processed securely by Stripe</span>
+  </div>
+</footer>
+<script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>
