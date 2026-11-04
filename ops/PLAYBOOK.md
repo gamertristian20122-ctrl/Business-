@@ -47,7 +47,9 @@ Google Sheet "Sips Websites - Lead Tracker".
 - Every demo has `<meta name="robots" content="noindex, nofollow">` and a "Preview" banner.
 - Every email has the sender's name, the mailing address from Settings and a one-line way to opt out.
   Opt-outs are permanent.
-- Never put the family's home address, school, last name or personal phone number in any email or site.
+- The mailing address in Settings goes only in the footer of sales emails (Dijana approved this).
+  Never put it on any website or in this repo. Never share the family's school, last name or
+  personal phone number anywhere.
 - Money only through the Stripe payment link. No gift cards, no Venmo to strangers, no paying anyone.
 - Never agree to meet anyone in person. Phone calls are the parent's.
 - One business, at most 3 emails total.
