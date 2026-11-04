@@ -19,6 +19,18 @@
       "skillPath": "skills/offers/SKILL.md",
       "computedHash": "cf33eff3e0bc6a527d16f00919f8887be47e9f3dae78a0b382b8e6df8f8081cc"
     },
+    "prospecting": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/prospecting/SKILL.md",
+      "computedHash": "435118084e04534a9d393a69e19e8dd846271ebd1e13d3966b02e8c2e4a72780"
+    },
+    "sales-enablement": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/sales-enablement/SKILL.md",
+      "computedHash": "b1068a9769cf28f6b6bc68220ef080c44bda88b008a5975d81784ad62975c2dc"
+    },
     "schema": {
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
