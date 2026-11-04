@@ -10,8 +10,11 @@ Google Sheet "Sips Websites - Lead Tracker".
 - A custom website for a local Omaha-area business: fast on phones, tap-to-call, estimate form,
   their real reviews, hours and service area, set up so it shows up on Google.
 - **$200, paid once**, by Stripe payment link (the Stripe account is the adult owner's).
-- The customer keeps their own web address, or buys one (about $12 a year). Hosting is free
-  (Cloudflare Pages).
+- The customer keeps their own web address, or buys one (about $12 a year). Hosting is free.
+- Preview sites live in `demos/<business-slug>/` and are served by GitHub Pages from the branch
+  `ccr-20a6df05-544j57` at `https://gamertristian20122-ctrl.github.io/Business-/demos/<business-slug>/`.
+  Commit demos to that branch. Paid customers' finished sites go on Cloudflare Pages (set up when
+  the first customer pays).
 - The pitch is true and personal: a 14-year-old in Omaha building websites to save for college,
   with a parent handling payments.
 
