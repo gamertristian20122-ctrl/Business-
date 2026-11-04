@@ -38,8 +38,27 @@ Google Sheet "Sips Websites - Lead Tracker".
    and the businesses' own pages; record the source page and date. Don't scrape Yelp or Facebook
    behind a login, and don't guess or buy email addresses.
 5. **Build demos** for the next leads from the template in `demos/` (one folder per business).
-6. **Send emails** (only when Settings says sending is approved):
-   - First week: at most 5 new first emails a day. After that: at most 15.
+6. **Send emails** (only when Settings says sending is approved). Two kinds, both approved by Dijana:
+   - **Full preview email** (the Fresh Clean email): for the best leads (no website, or a badly
+     broken one). Build their preview first, link it.
+   - **Short email**: for everyone else. No preview yet; one real, specific problem you saw on their
+     site or listing. If they answer yes, build their preview within a day and send the link plus
+     the payment link. Template (change only the business name and the one true detail):
+
+     > Subject: Quick idea for [Business]
+     >
+     > Hi, I'm Tristian. I'm 14 and I build websites for local businesses to save for college. I
+     > looked at [Business] and noticed [one real thing, e.g. "your phone number can't be tapped on
+     > a phone"].
+     >
+     > I can build you a new site for $200, and I'll make you a free preview first so you can see it
+     > before deciding. Want me to make one?
+     >
+     > Tristian and Dijana, Sips Websites
+     > [mailing address from Settings] · Not interested? Reply "no thanks" and we won't email again.
+
+   - Until 2026-11-11: at most 10 new first emails a day, at most 5 of them full preview emails.
+     After that: at most 15 a day.
    - Follow-up 1 four days later, follow-up 2 ten days later, then stop. Stop the moment they reply.
 7. **Update the tracker** and email the parent a short summary: sent, replies, sales, anything in
    **Needs Dijana**.
