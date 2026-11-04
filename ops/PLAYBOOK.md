@@ -30,7 +30,11 @@ Google Sheet "Sips Websites - Lead Tracker".
      kid. Mark **Needs Dijana** and include it in the daily summary.
 3. **Paid customers.** Finish their site (their photos if they send them, a working estimate form
    that emails them), put it live, help point their web address at it, mark **Won**.
-4. **New leads.** Keep at least 10 leads with a public business email waiting. Use free web search
+4. **New leads.** Follow Settings "Target area" and "Business types": Omaha first, then nearby
+   cities, then (after the first sale) anywhere in the USA, worst websites first. The goal is every
+   small business in the country, a few at a time. Never go over 15 new emails a day from a
+   personal Gmail; more than that needs a separate business email domain first.
+   Keep at least 10 leads with a public business email waiting. Use free web search
    and the businesses' own pages; record the source page and date. Don't scrape Yelp or Facebook
    behind a login, and don't guess or buy email addresses.
 5. **Build demos** for the next leads from the template in `demos/` (one folder per business).
